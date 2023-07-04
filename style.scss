@@ -127,6 +127,7 @@ h3 {
 .resume .base .about .job-link {
   color: $lightest-blue
 }
+
 .resume .base .profile .info {
   text-align: center;
   color: $white;
@@ -244,16 +245,19 @@ h3 {
   transition-duration: 0.3s;
 }
 .resume .func .work,
-.resume .func .edu {
+.resume .func .edu,
+.resume .func .resume {
   float: left;
 }
 .resume .func .work small,
-.resume .func .edu small {
+.resume .func .edu small,
+.resume .func .resume small {
   display: block;
   opacity: 0.7;
 }
 .resume .func .work ul li,
-.resume .func .edu ul li {
+.resume .func .edu ul li,
+.resume .func .resume ul li {
   position: relative;
   margin-left: 15px;
   padding-left: 25px;
@@ -326,6 +330,11 @@ h3 {
   margin: 0 4% 15px 0;
 }
 .resume .func .edu {
+  width: 48%;
+  background: $darker-blue;
+  padding: 15px;
+}
+.resume .func .resume {
   width: 48%;
   background: $darker-blue;
   padding: 15px;
@@ -428,7 +437,7 @@ h3 {
   width: 100%;
   text-align: center;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 .resume .func .interests-items div {
   display: flex;
@@ -447,7 +456,7 @@ h3 {
   transition-duration: 0.3s;
 }
 .resume .func .interests-items div i {
-  font-size: 45px;
+  font-size: 50px;
   width: 60px;
   height: 60px;
   line-height: 60px;
