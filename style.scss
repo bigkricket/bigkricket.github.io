@@ -227,6 +227,15 @@ h3 {
 .resume .func:hover > div:not(:hover) {
   opacity: 0.5;
 }
+.resume .func:hover > a > div {
+  transition-duration: 0.5s;
+}
+.resume .func:hover > a > div:hover h3 i {
+  transform: scale(1.25);
+}
+.resume .func:hover > a > div:not(:hover) {
+  opacity: 0.5;
+}
 .resume .func h3 {
   transition-duration: 0.3s;
   margin-top: 0;
@@ -340,6 +349,12 @@ h3 {
   padding: 5px 10px;
   margin: 0px 52% 15px 0px;
   display: flex;
+  a:not(&) {
+    text-decoration: none;
+    color: inherit;
+    animation: none;
+    transition: none;
+  }
 }
 .resume .func .skills-prog {
   clear: both;
