@@ -245,19 +245,18 @@ h3 {
   transition-duration: 0.3s;
 }
 .resume .func .work,
-.resume .func .edu,
-.resume .func .resume {
+.resume .func .edu {
   float: left;
 }
 .resume .func .work small,
 .resume .func .edu small,
-.resume .func .resume small {
+.resume .func .res small {
   display: block;
   opacity: 0.7;
 }
 .resume .func .work ul li,
 .resume .func .edu ul li,
-.resume .func .resume ul li {
+.resume .func .res ul li {
   position: relative;
   margin-left: 15px;
   padding-left: 25px;
@@ -333,11 +332,14 @@ h3 {
   width: 48%;
   background: $darker-blue;
   padding: 15px;
+  margin-bottom: 15px;
 }
-.resume .func .resume {
+.resume .func .res {
   width: 48%;
   background: $darker-blue;
-  padding: 15px;
+  padding: 5px 10px;
+  margin: 0px 52% 15px 0px;
+  display: flex;
 }
 .resume .func .skills-prog {
   clear: both;
