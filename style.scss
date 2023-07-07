@@ -392,7 +392,7 @@ h3 {
   position: absolute;
   top: -1px;
   height: 4px;
-  background: $lightest-blue;
+  background: $light-blue;
   box-shadow: 0 0 0 $lightest-blue;
   border-radius: 5px;
 }
@@ -414,6 +414,14 @@ h3 {
   stroke: $yellow;
   stroke-width: 4px;
 }
+.resume .func .skills-soft ul li svg {
+  transform: scale(1);
+  transition: transform 0.3s ease;
+}
+.resume .func .skills-soft ul li:hover svg {
+  transform: scale(1.2);
+  transition: transform 0.3s ease;
+}
 .resume .func .skills-soft ul li:hover span,
 .resume .func .skills-soft ul li:hover small {
   transform: scale(1.2);
@@ -421,7 +429,7 @@ h3 {
 .resume .func .skills-soft ul li svg {
   width: 95%;
   fill: transparent;
-  transform: rotate(-90deg);
+  //transform: rotate(-90deg);
 }
 .resume .func .skills-soft ul li svg circle {
   stroke-width: 1px;

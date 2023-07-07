@@ -363,7 +363,7 @@ h3 {
   position: absolute;
   top: -1px;
   height: 4px;
-  background: #C3E0E5;
+  background: #41729F;
   box-shadow: 0 0 0 #C3E0E5;
   border-radius: 5px; }
 
@@ -385,14 +385,21 @@ h3 {
   stroke: #fdd835;
   stroke-width: 4px; }
 
+.resume .func .skills-soft ul li svg {
+  transform: scale(1);
+  transition: transform 0.3s ease; }
+
+.resume .func .skills-soft ul li:hover svg {
+  transform: scale(1.2);
+  transition: transform 0.3s ease; }
+
 .resume .func .skills-soft ul li:hover span,
 .resume .func .skills-soft ul li:hover small {
   transform: scale(1.2); }
 
 .resume .func .skills-soft ul li svg {
   width: 95%;
-  fill: transparent;
-  transform: rotate(-90deg); }
+  fill: transparent; }
 
 .resume .func .skills-soft ul li svg circle {
   stroke-width: 1px;
