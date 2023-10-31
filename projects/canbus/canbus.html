@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Building a Diagnostic Tool for my Car</title>
+</head>
+<body>
+
+    <h1>Building a Diagnostic Tool for my Car</h1>
+
+    <h2>Introduction</h2>
+        <p>The days of cars being pure mechanical devices are long gone but we still tend to overlook the amount of electrical components that must communicate with each other and how they do it inside a vehicle. In the past, car ECUs relied primarily on complex point-to-point wiring. In 1986, The company BOSCH developed the CAN protocol as a solution and it was adopted as an international standard in 1993 (ISO 11898). The CAN protocol standardized the physical and data link layer; most cars use that protocol today in order to get fast and robust communication between modules. In 2008 ISO 15765 was adopted in the US as the mandatory Protocol for the OBD2 self-diagnostic system, primarily ISO 15765-4 which seeks to standardize the CAN bus interface for external test equipment. In this project I will be tapping into my truck's OBD2 port, decoding CAN traffic, and writing custom python code to interface with the OBD2.</p>
+
+    <h2>Connecting to the CAN Network</h2>
+    <p>The vehicle I will be working with is my daily driver, a 2015 Dodge Ram 1500. Most cars, including my truck, have two can busses: A medium speed (MS) can network for diagnostics and a high speed (HS) network for more critical processes. On my truck these are called CAN-IHS and CAN-C respectively. Below are the schematics for my truck's CAN networks.</p>
+    <embed src="images/CAN_C_RAM.pdf" width="800" height="600" type="application/pdf">
+    <embed src="images/CAN-C-BUS-SYSTEM.pdf" width="800" height="600" type="application/pdf">
+    <embed src="images/CAN_IHS_RAM.pdf" width="800" height="600" type="application/pdf">
+    <embed src="images/CAN-IHS-BUS-SYSTEM.pdf" width="800" height="600" type="application/pdf">
+    <p>As mentioned earlier, due to the introduction of ISO 15765-4 the OBD2 port on my truck has access to the CAN-C network through pins 6 (CAN high) and 14 (CAN low).</p>
+    <img src="images/obd2-connector-pinout-socket.svg" alt="SVG Image" width="800" height="600">
+    <p>*A quick aside on the CAN physical layer (ISO 11898-2): generally the can bus consists of a differential signal sent through a twisted pair of wires reffered to as CAN high and CAN low. For the scope of this project that is all we reallly need to know, but I recommend finding more resources online.</p>
+    <p>Knowing the above I will be using the following hardware to establish a connection:</p>
+    <ul>
+        <li>A linux computer with <a href="https://www.kernel.org/doc/html/latest/networking/can.html">socket-can</a> and <a href="https://github.com/linux-can/can-utils">can-utils</a></li>
+        <li><a href="https://www.adafruit.com/product/4841?gclid=Cj0KCQjwy4KqBhD0ARIsAEbCt6hQvV-kPt_Ral_f11UuzZz2_lTsW4SAJDilZumwbzQRJ-uC7dVlL7MaAsJGEALw_wcB">An OBD2 to DB9 cable</a></li>
+        <img src="images/IMG_0415.jpg" alt="Peak Adapter" width="300" height="400">
+        <li><a href="https://www.gridconnect.com/products/can-usb-adapter-pcan-usb?variant=8999285751844&utm_term=&utm_campaign=Shopping+-+Product&utm_source=adwords&utm_medium=ppc&hsa_acc=7986939350&hsa_cam=18566303751&hsa_grp=149294111698&hsa_ad=655600308401&hsa_src=g&hsa_tgt=pla-484991577302&hsa_kw=&hsa_mt=&hsa_net=adwords&hsa_ver=3&gad=1&gclid=Cj0KCQjwy4KqBhD0ARIsAEbCt6gIqeXJRzU6gAuBXw06eHSQTkY2k1A5csFtdDeAOix8PGlBZyVzmTMaAnhGEALw_wcB">A Grid Connect Peak-USB adapter</a></li>
+        <img src="images/IMG_0416.jpg" alt="OBD2 cable" width="300" height="400">
+    </ul>
+    <p>With these three pieces of hardware connected, I can now look at some of the raw trafiic getting sent over the CAN network.</p>
+    <h3>Setting up Socket CAN</h3>
+</body>
+</html>
