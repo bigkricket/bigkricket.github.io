@@ -28,6 +28,14 @@
         <img src="images/IMG_0416.jpg" alt="OBD2 cable" width="300" height="400">
     </ul>
     <p>With these three pieces of hardware connected, I can now look at some of the raw trafiic getting sent over the CAN network.</p>
-    <h3>Setting up Socket CAN</h3>
+    <h3>Setting up Linux to Interact with the CAN Network</h3>
+    <p>Linux is able to leverage it's networking stack through SocketCAN and a few common device drivers to treat a connection to a CAN Network as similar as possible to a TCP/IP connections. This allows programmers to easily learn how to use the CAN sockets much alike other network programming. The aformentioned peak has device drivers that come installed by default on a generic Linux install. When you first plug in the peak into your computer it will be recognized as a network device and you can configure the interface using the <code>ip</code> command. Running the <code>ip a</code> command with the peak connected shows the following:</p>
+    <img src="images/can0_if_ipa.png" alt="can0">
+    <p>At this point we can bring up our network with:</p>
+    <code>sudo ip link set can0 up type can bitrate 500000 restart-ms 100 listen-only on</code>
+    <p>The bitrate specified will depend on the baud-rate of your car's CAN network. In my case I found it out by trial and error. Some common values to try are 125000, 250000, 500000, and 1000000. It is important to pass in the listen-only option when trying out different bitrates so that we don't accidently cause errors on the CAN bus. You know you have found the correct bitrate when you can run the <code>candump</code> command and see raw CAN traffic being printed to your stdout:</p>
+    <img src="images/candump.png" alt="candump image">
+    <p>For convenience, I captured a log file containing a few minutes of data using the <code>candump -l</code> command. This log file will come in useful later on as we can set up a virtual can interface and replay the recorded CAN data to emulate a live CAN network.</p>
+
 </body>
 </html>
