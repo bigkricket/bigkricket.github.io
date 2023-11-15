@@ -76,7 +76,7 @@
     <img src="images/CANprotocol.png" alt="can protocol">
     <figcaption>Base Class I created to build CAN protocols off of.</figcaption>
     </figure>
-    <p>Additionally I added a CANPortCollection class to help manange multiple transport for convenience. With these classes fleshed out I created a very simple class called FrameConsumer to test my work up until this point. The FrameConsumer at this point will fire a callback that prints whenever a frame is recieved on the network. For the sake of iteration time and safety, I brought up a virtual CAN network to test on (vcan0). I can use this vcan0 network and the can-utils tools to emulate real traffic on a bus. For now I started by 
+    <p>Additionally I added a CANPortCollection class to help manange multiple transports for convenience. With these classes fleshed out I created a very simple class called FrameConsumer to test my work up until this point. The FrameConsumer at this point will fire a callback that prints whenever a frame is recieved on the network. For the sake of iteration time and safety, I brought up a virtual CAN network to test on (vcan0). I can use this vcan0 network and the can-utils tools to emulate real traffic on a bus.
     <figure id="frameconsumer">
     <img src="images/run_frame_consumer.png" alt="script to start frame consumer">
     <figcaption>Simple script I wrote to start a frame consumer on vcan0, In this case I am filtering for frames with the 0x1d0 cob-id.</figcaption>
