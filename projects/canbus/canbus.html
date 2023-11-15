@@ -4,12 +4,20 @@
     <title>Building a Diagnostic Tool for my Car</title>
 </head>
 <body>
-
     <h1>Building a Diagnostic Tool for my Car</h1>
+    <h2>Table of Contents</h2>
+    <ul>
+        <li><a href="#intro">Introduction</a></li>
+        <li><a href="#connecting">Connecting to the CAN Network</a></li>
+        <li><a href="#socketcan">Writing a Python Wrapper for SocketCAN</a></li>
+    </ul>
 
+    <section id="intro">
     <h2>Introduction</h2>
         <p>The days of cars being pure mechanical devices are long gone but we still tend to overlook the amount of electrical components that must communicate with each other and how they do it inside a vehicle. In the past, car ECUs relied primarily on complex point-to-point wiring. In 1986, The company BOSCH developed the CAN protocol as a solution and it was adopted as an international standard in 1993 (ISO 11898). The CAN protocol standardized the physical and data link layer; most cars use that protocol today in order to get fast and robust communication between modules. In 2008 ISO 15765 was adopted in the US as the mandatory Protocol for the OBD2 self-diagnostic system, primarily ISO 15765-4 which seeks to standardize the CAN bus interface for external test equipment. In this project I will be tapping into my truck's OBD2 port, decoding CAN traffic, and writing custom python code to interface with the OBD2.</p>
+    </section>
 
+    <section id="connecting">
     <h2>Connecting to the CAN Network</h2>
     <p>The vehicle I will be working with is my daily driver, a 2015 Dodge Ram 1500. Most cars, including my truck, have two can busses: A medium speed (MS) can network for diagnostics and a high speed (HS) network for more critical processes. On my truck these are called CAN-IHS and CAN-C respectively. Below are the schematics for my truck's CAN networks.</p>
     <embed src="images/CAN_C_RAM.pdf" width="800" height="600" type="application/pdf">
@@ -36,6 +44,25 @@
     <p>The bitrate specified will depend on the baud-rate of your car's CAN network. In my case I found it out by trial and error. Some common values to try are 125000, 250000, 500000, and 1000000. It is important to pass in the listen-only option when trying out different bitrates so that we don't accidently cause errors on the CAN bus. You know you have found the correct bitrate when you can run the <code>candump</code> command and see raw CAN traffic being printed to your stdout:</p>
     <img src="images/candump.png" alt="candump image">
     <p>For convenience, I captured a log file containing a few minutes of data using the <code>candump -l</code> command. This log file will come in useful later on as we can set up a virtual can interface and replay the recorded CAN data to emulate a live CAN network.</p>
+    </section>
+
+    <section id="socketcan">
+    <h2>Writing a Python Wrapper for SocketCAN</h2>
+    <p>In order to develop my own diagnostic tool, I will need a way to interact with the CAN interface I brought up. I decided to use the ctypes module in python to directly convert some of the frame structures defined in socketCAN into python objects. I took this approach as it will later on allow me to leverage a lot of the cool libraries python has accessible for plotting and creating command line interface tools.</p>
+    <figure id="CanFrame">
+    <img src="images/canframe_structure.png" alt="canframe">
+    <figcaption>An example of a python wrapper class for a SocketCAN definition using the ctypes module.</figcaption>
+    </figure>
+    <p>Once I converted some of the basic C definitions from python I created a class that inherits from the socket Python class. The idea here is that I can create methods defining exactly how I want to write, read, bind, filter, and perform other operations based off of the CAN addresses and structure definitons I previously created. Through this approach I can also use the fileno() property of the socket class to grab the file descriptor of the socket and eventually pass it in to the asyncio.Transport class to leverage the event loop and be able to add callback methods that fire once data is available to read on the interface.</p>
+    <figure id="write">
+    <img src="images/write.png" alt="write canframe">
+    <figcaption>Method I added to SocketCAN class that allows you to write a CAN frame to the socket.</figcaption>
+    </figure>
+    <figure id="read">
+    <img src="images/read.png" alt="read canframe">
+    <figcaption>Method I added to SocketCAN class that allows you to read a CAN frame from the socket and return an object.</figcaption>
+    </figure>
+    </section>
 
 </body>
 </html>
