@@ -10,6 +10,7 @@
         <li><a href="#intro">Introduction</a></li>
         <li><a href="#connecting">Connecting to the CAN Network</a></li>
         <li><a href="#socketcan">Writing a Python Wrapper for SocketCAN</a></li>
+        <li><a href="#protocols">Writing Higher Level Protocols</a></li>
     </ul>
 
     <section id="intro">
@@ -62,7 +63,34 @@
     <img src="images/read.png" alt="read canframe">
     <figcaption>Method I added to SocketCAN class that allows you to read a CAN frame from the socket and return an object.</figcaption>
     </figure>
+    <p>With the SocketCAN wrapper completed I can now begin focusing on writing the transport class as well as some higher level protocols.</p>
     </section>
+    <section id="protocols">
+    <h2>Writing Higher Level Protocols</h2>
+    <p>With the low level stuff out of the way the next step is to define some higher level rules on what how to work with the CAN network. In networking transports and protocols have a 1-to-1 relationship and I will need to define both in this project. Luckily for me asyncio has both a base Transport and a base Protocol class which I can inherit from and build upon. Knowing this I created a CANPort class and a base CANProtocol class that I will use as the basis of even higher level protocols.</p>
+    <figure id="transport">
+    <img src="images/CANPort.png" alt="can transport">
+    <figcaption>Class I created to define the CAN transport.</figcaption>
+    </figure>
+    <figure id="protocol">
+    <img src="images/CANprotocol.png" alt="can protocol">
+    <figcaption>Base Class I created to build CAN protocols off of.</figcaption>
+    </figure>
+    <p>Additionally I added a CANPortCollection class to help manange multiple transport for convenience. With these classes fleshed out I created a very simple class called FrameConsumer to test my work up until this point. The FrameConsumer at this point will fire a callback that prints whenever a frame is recieved on the network. For the sake of iteration time and safety, I brought up a virtual CAN network to test on (vcan0). I can use this vcan0 network and the can-utils tools to emulate real traffic on a bus. For now I started by 
+    <figure id="frameconsumer">
+    <img src="images/run_frame_consumer.png" alt="script to start frame consumer">
+    <figcaption>Simple script I wrote to start a frame consumer on vcan0, In this case I am filtering for frames with the 0x1d0 cob-id.</figcaption>
+    </figure>
+    <figure id="cansend">
+    <img src="images/cansend.png" alt="cansedn frame">
+    <figcaption>Here I am using the cansend command to send a frame over the virtual can network while the FrameConsumer is listening.</figcaption>
+    </figure>
+    <figure id="output">
+    <img src="images/terminaloutput.png" alt="terminal output of frameconsumer">
+    <figcaption>This is the output from the script above. When the frame was sent with the cansend command the FrameConsumer fired a callback to print the frame information.</figcaption>
+    </figure>
+    </section>
+
 
 </body>
 </html>
