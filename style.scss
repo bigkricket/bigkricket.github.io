@@ -356,39 +356,39 @@ h3 {
     transition: none;
   }
 }
-.resume .func .skills-prog {
+.resume .func .aft-video {
   clear: both;
   background: $darker-blue;
   padding: 15px;
 }
-.resume .func .skills-prog ul {
+.resume .func .aft-video ul {
   margin-left: 15px;
 }
-.resume .func .skills-prog ul li {
+.resume .func .aft-video ul li {
   margin-bottom: 8px;
   display: flex;
   align-items: center;
   transition-duration: 0.3s;
 }
-.resume .func .skills-prog ul li:hover {
+.resume .func .aft-video ul li:hover {
   color: $yellow;
 }
-.resume .func .skills-prog ul li:hover .skills-bar .bar {
+.resume .func .aft-video ul li:hover .skills-bar .bar {
   background: $yellow;
   box-shadow: 0 0 0 1px $yellow;
 }
-.resume .func .skills-prog ul li span {
+.resume .func .aft-video ul li span {
   display: block;
   width: 120px;
 }
-.resume .func .skills-prog ul li .skills-bar {
+.resume .func .aft-video ul li .skills-bar {
   background: $white;
   height: 2px;
   width: calc(100% - 120px);
   position: relative;
   border-radius: 2px;
 }
-.resume .func .skills-prog ul li .skills-bar .bar {
+.resume .func .aft-video ul li .skills-bar .bar {
   position: absolute;
   top: -1px;
   height: 4px;
