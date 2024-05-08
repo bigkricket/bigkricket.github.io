@@ -4,7 +4,7 @@
     <title>Building a Diagnostic Tool for my Car</title>
 </head>
 <body>
-    <h1>Building a Diagnostic Tool for my Car</h1>
+    <h1>Building a Diagnostic Tool for my Car with Python!</h1>
     <h2>Table of Contents</h2>
     <ul>
         <li><a href="#intro">Introduction</a></li>
@@ -89,8 +89,11 @@
     <img src="images/terminaloutput.png" alt="terminal output of frameconsumer">
     <figcaption>This is the output from the script above. When the frame was sent with the cansend command the FrameConsumer fired a callback to print the frame information.</figcaption>
     </figure>
+    <p>With the ability to filter specific cobids and fire callbacks when messages are recieved. I can now easily send and monitor for diagnostic messages, specifically 0x7DF(Request) and 0x7E8(Response). This <a href="https://www.csselectronics.com/pages/obd2-pid-table-on-board-diagnostics-j1979">OBD2 PID Table</a> provides a lookup table for all the PIDs that are standard to the OBD2 protocol. An example usage of this module would be to send out requests for vehicle speed at a certain interval and live plot the responses on a custom dashboard.</p>
     </section>
-
-
+    <section id="conclusion">
+        <h2>Conclusion</h2>
+        <p>Through this project, I have successfully built a module for a car using Python and SocketCAN. I have learned how to connect to the CAN network, write a Python wrapper for SocketCAN, and write higher level protocols. In the future I can take this module and create custom GUI's and visualizations using Pythons extensive libraries.</p>
+    </section>
 </body>
 </html>
