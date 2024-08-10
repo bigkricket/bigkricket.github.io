@@ -1,0 +1,105 @@
+body {   
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+  
+.project {    
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+  
+.header {       
+  text-align: center;
+  border-bottom: 2px solid #333;
+  padding-bottom: 10px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 2em;
+  color: #333;
+}
+  
+.header p {
+  margin-top: 5px;
+  color: #666;
+}
+  
+.overview, .details, .progress, .media {
+  margin-top: 20px;
+}
+  
+h3 {
+  color: #333;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+}
+  
+ul {
+  list-style: none;
+  padding: 0;
+}
+  
+ul li {
+  margin-bottom: 10px;
+  padding-left: 20px;
+  position: relative;
+}
+  
+ul li:before {
+  content: "\2022";
+  font-family: 'Arial';
+  color: #27ae60;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+  
+.media img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ddd;
+  margin-top: 10px;
+}
+  
+.footer {
+  text-align: center;
+  margin-top: 30px;
+}
+  
+.footer a {
+  color: #3498db;
+  text-decoration: none;
+}
+  
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.rounded-image {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.banner-image {
+    width: 800px;
+    border-radius: 10px;
+}
+
+.image-container img {
+    margin: 10px;
+}

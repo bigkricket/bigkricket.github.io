@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Apple Harvester Drive System</title>
+  <link rel="stylesheet" href="apple_harvester.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="project">
+    <div class="header">
+      <h1>Apple Harvester Drive System</h1>
+      <p>Documenting the development of a robust drive system for an automated apple harvester.</p>
+    </div>
+    <div class="overview">
+      <h3>Project Overview</h3>
+      <p>This project involves the design and implementation of the drive system for an automated apple harvester. The system focuses on achieving precise control and stability while navigating rough terrains.</p>
+    </div>
+    <div class="banner">
+        <h3>Background</h3>
+        <p>In 2023 Advanced Farm developed a robotic apple harvester. This harvester re-used a lot of our technical stack from strawberry harvest and allowed us to pick over 80,000 apples! I manage the software testing team at Advanced Farm but for this project I was responsible for all drive system related software.</p> 
+        <div class=".content">
+            <a href="https://advanced.farm/technology/apple-harvester/">
+                <img src="background.jpeg" alt="Apple Harvester Image" class="banner-image">
+            </a>
+        </div>
+    </div>
+    <div class="problem">
+        <h3>Problem Statement</h3>
+        <p>The need for this project came from a quick relization that we needed to stay centered in an apple trellis in order to pick effectively and reduce downtime. Being unable to stay centered introduces the following issues:</p>
+        <ul>
+            <li>The work volume of our robots became limited or out of range.</li>
+            <li>Robots are more likely to snag when driving towards one side of the trellis.</li>
+            <li>The harvester is unable to correct it's steering angle and you risk damaging the orchard.</li>
+        </ul>
+            <div class="problem-statement">
+                <a href="problem/snag.jpg" target="_blank">
+                    <img src="problem/snag.jpg" alt="Image 1" class="rounded-image">
+                </a>
+                <a href="problem/workspace.png" target="_blank">
+                    <img src="problem/workspace.png" alt="Image 2" class="rounded-image">
+                </a>
+                <video controls class="rounded-image">
+                    <source src="problem/off_center.mp4" type="video/mp4">
+                </video>
+            </div>
+    </div>
+    <div class="details">
+      <h3>Technical Details</h3>
+      <p>Before I jump into my approaches and design let me give you some insight into the system I had to become familiar with.</p>
+      <ul>
+        <li>Control Systems: PID Control</li>
+        <li>Steering: Electric Differential</li>
+        <li>Motors: I&W EMAC Motors</li>
+        <li>Controllers: Sevcon Gen4 Compact AC Controllers</li>
+        <li>Communication Protocols: CAN, CANOpen</li>
+        <li>Sensors: Encoders</li>
+        <li>Programming Languages: Python</li>
+      </ul>
+    </div>
+    <div class="progress">
+      <h3>Progress</h3>
+      <ul>
+        <li>Phase 1: Requirements Gathering - Completed</li>
+        <li>Phase 2: Design and Prototyping - Ongoing</li>
+        <li>Phase 3: Implementation and Testing - Upcoming</li>
+        <li>Phase 4: Field Trials - Upcoming</li>
+      </ul>
+    </div>
+    <div class="media">
+      <h3>Media</h3>
+      <img src="apple_harvester.jpg" alt="Apple Harvester Image">
+      <p>Images and videos documenting the development process will be added here.</p>
+    </div>
+    <div class="footer">
+      <p><a href="../../index.html">Back to Home</a></p>
+    </div>
+  </div>
+  <script src="apple_harvester.js"></script>
+</body>
+</html>
