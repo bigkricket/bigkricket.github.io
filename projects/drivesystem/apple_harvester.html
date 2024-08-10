@@ -15,7 +15,7 @@
     </div>
     <div class="overview">
       <h3>Project Overview</h3>
-      <p>This project involves the design and implementation of the drive system for an automated apple harvester. The system focuses on achieving precise control and stability while navigating rough terrains.</p>
+      <p>This project involves the design and implementation of the drive system software for an automated apple harvester. The system focuses on achieving precise control and stability while navigating rough terrains.</p>
     </div>
     <div class="banner">
         <h3>Background</h3>
@@ -51,27 +51,36 @@
       <p>Before I jump into my approaches and design let me give you some insight into the system I had to become familiar with.</p>
       <ul>
         <li>Control Systems: PID Control</li>
-        <li>Steering: Electric Differential</li>
-        <li>Motors: I&W EMAC Motors</li>
-        <li>Controllers: Sevcon Gen4 Compact AC Controllers</li>
-        <li>Communication Protocols: CAN, CANOpen</li>
-        <li>Sensors: Encoders</li>
+        <li>Steering: Electric Differential, Ackermann Steering</li>
+        <li>Motors: <a href="technical/drive_datasheet.pdf"> I&W EMAC Motors</li></a>
+        <li>Controllers: <a href="technical/gen4_manual.pdf"> Sevcon Gen4 Compact AC Controllers</li></a>
+        <li>Communication Protocols: <a href="https://www.csselectronics.com/pages/can-bus-simple-intro-tutorial">CAN</a>, <a href="https://www.can-cia.org/can-knowledge/canopen">CANOpen</a></li>
+        <li>Sensors: <a href="technical/encoder.pdf">Encoders</a></li>
         <li>Programming Languages: Python</li>
       </ul>
+      <p>Here is a high level CAN network diagram I made for the strawberry harvester that remains mostly unchanged for the apple harvester.</p>
+      <div class="content">
+        <a href="technical/harvester_can_bus.png" target="_blank">
+            <img src="technical/harvester_can_bus.png" alt="CAN Network Diagram" class="scaled-image">
+        </a>
+        </div>
+      <p>The harvester is a complex distributed system. To manage the sequencing of various services around the harvester, we use systemd on each of the service nodes. Below is a diagram of some of the key services running on our master computer.</p>
+        <div class="content">
+            <a href="technical/services_overview.png" target="_blank">
+                <img src="technical/services_overview.png" alt="Systemd Diagram", class="scaled-image">
+            </a>
     </div>
-    <div class="progress">
-      <h3>Progress</h3>
+    <div class="process">
+      <h3>Process</h3>
       <ul>
-        <li>Phase 1: Requirements Gathering - Completed</li>
-        <li>Phase 2: Design and Prototyping - Ongoing</li>
-        <li>Phase 3: Implementation and Testing - Upcoming</li>
-        <li>Phase 4: Field Trials - Upcoming</li>
+        <li>Phase 1: Commissioning the Sevcon Gen4 Compact AC Controllers</li>
+        <li>Phase 2: Designing and prototyping</li>
+        <li>Phase 3: Implementation and testing</li>
       </ul>
     </div>
-    <div class="media">
-      <h3>Media</h3>
-      <img src="apple_harvester.jpg" alt="Apple Harvester Image">
-      <p>Images and videos documenting the development process will be added here.</p>
+    <div class="results">
+      <h3>Results</h3>
+      <p>After implementing the drive system software, the apple harvester was able to navigate through apple trellises with precision and stability. The system was able to maintain a centered position within the trellis, reducing the risk of snagging and damage to the orchard.</p>
     </div>
     <div class="footer">
       <p><a href="../../index.html">Back to Home</a></p>
