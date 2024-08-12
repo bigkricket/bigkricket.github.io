@@ -1,106 +1,240 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Apple Harvester Drive System</title>
-  <link rel="stylesheet" href="apple_harvester.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple Harvester Drive System</title>
+    <link rel="stylesheet" href="apple_harvester.css">
 </head>
 <body>
-  <div class="project">
-    <div class="header">
-      <h1>Apple Harvester Drive System</h1>
-      <p>Documenting the development of a robust drive system for an automated apple harvester.</p>
-    </div>
-    <div class="overview">
-      <h3>Project Overview</h3>
-      <p>This project involved enhancing the drive system software for an automated apple harvester. My work focused on significantly improving the system's precision and stability, especially in navigating rough terrains. By refining the control algorithms and optimizing the existing software, I contributed to achieving more reliable and accurate operation of the harvester in challenging agricultural environments.</p>
-    </div>
-    <div class="banner">
-      <h3>Background</h3>
-      <p>Advanced Farm develops robotic strawberry and apple harvesters, with 2023 being the first year the apple harvester was brought up. This harvester re-used a lot of our technical stack from strawberry harvesting and allowed us to pick over 80,000 apples!</p> 
-      <div class="content">
+    <div class="slide project">
+        <div class="header">
+            <h1>Apple Harvester Drive System</h1>
+            <p>Documenting the development of a robust drive system for an automated apple harvester.</p>
+        </div>      
+        <div class="content">
         <a href="https://advanced.farm/technology/apple-harvester/">
           <img src="background.jpeg" alt="Apple Harvester Image" class="banner-image">
         </a>
       </div>
+
     </div>
-    <div class="problem">
-      <h3>Project Motivation</h3>
-      <p>The need for this project arose from a quick realization that we needed to stay centered in an apple trellis to pick effectively and reduce downtime. Being unable to stay centered introduces the following issues:</p>
-      <ul>
-        <li>The work volume of our robots became limited or out of range.</li>
-        <li>Robots are more likely to snag when driving towards one side of the trellis.</li>
-        <li>The harvester is unable to correct its steering angle, and you risk damaging the orchard.</li>
-      </ul>
-      <div class="problem-statement">
-        <a href="problem/snag.jpg" target="_blank">
-          <img src="problem/snag.jpg" alt="Image 1" class="rounded-image">
-        </a>
-        <a href="problem/workspace.png" target="_blank">
-          <img src="problem/workspace.png" alt="Image 2" class="rounded-image">
-        </a>
-        <video controls class="rounded-image">
-          <source src="problem/off_center.mp4" type="video/mp4">
-        </video>
-      </div>
+
+    <div class="slide project">
+        <div class="table-of-contents">
+            <h2>Table of Contents</h2>
+            <ol>
+                <li><a href="#" onclick="goToSlide(2); return false;">Project Goal</a></li>
+                <li><a href="#" onclick="goToSlide(3); return false;">Key Challenges</a></li>
+                <li><a href="#" onclick="goToSlide(4); return false;">Pivotal Decisions</a></li>
+                <li><a href="#" onclick="goToSlide(5); return false;">Hands-On Component</a></li>
+                <li><a href="#" onclick="goToSlide(6); return false;">Project Overview</a></li>
+                <li><a href="#" onclick="goToSlide(7); return false;">Background</a></li>
+                <li><a href="#" onclick="goToSlide(8); return false;">Project Motivation</a></li>
+                <li><a href="#" onclick="goToSlide(9); return false;">High Level Overview</a></li>
+                <li><a href="#" onclick="goToSlide(10); return false;">Technical Details</a>
+                    <ul>
+                        <li><a href="#" onclick="goToSlide(11); return false;">Commissioning the Sevcons and Drives</a></li>
+                        <li><a href="#" onclick="goToSlide(15); return false;">Testing and Iteration</a></li>
+                        <li><a href="#" onclick="goToSlide(17); return false;">Features Implemented</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" onclick="goToSlide(20); return false;">Results</a></li>
+                <li><a href="#" onclick="goToSlide(21); return false;">Lessons Learned</a></li>
+                <li><a href="#" onclick="goToSlide(22); return false;">Questions</a></li>
+            </ol>
+        </div>
     </div>
+
+    <div class="slide project">
+        <div class="back-to-contents">
+            <button onclick="goToSlide(1)">Back to Contents</button>
+        </div>
+        <div class="overview">
+            <h2>Project Goal</h2>
+             <div class="problem">
+                  <p>The need for this project arose from a quick realization that we needed
+                  to stay centered in an apple trellis to pick effectively and reduce
+                  downtime. Being unable to stay centered introduces the following issues:</p>
+                  <ul>
+                    <li>The work volume of our robots became limited or out of range.</li>
+                    <li>Robots are more likely to snag when driving towards one side of the
+                    trellis.</li>
+                    <li>The harvester is unable to correct its steering angle, and you risk
+                    damaging the orchard.</li>
+                  </ul>
+                  <div class="problem-statement">
+                    <a href="problem/snag.jpg" target="_blank">
+                      <img src="problem/snag.jpg" alt="Image 1" class="rounded-image">
+                    </a>
+                    <a href="problem/workspace.png" target="_blank">
+                      <img src="problem/workspace.png" alt="Image 2" class="rounded-image">
+                    </a>
+                    <video controls class="rounded-image">
+                      <source src="problem/off_center.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                </div>
+                <p>The reason for this was mainly that our motors did not follow
+                    the commanded speed accurately enough to keep us centered in the row.
+                </p>
+                <a href="technical/result_old.png">
+                    <img src="technical/result_old.png" alt="Old Results" class="scaled-image">
+                </a>
+                <p>Therefore the overall goal of this project was to enhance the 
+                    drive system software for our robotic apple harvester in order
+                    to provide precise motor control in rough terrain</p>
+        </div>
+    </div>
+</div>
+  <div class="slide project">
     <div class="details">
-      <h3>High Level Overview</h3>
-      <p>Before I jump into my approaches and design, let me give you some insight into the system I had to become familiar with.</p>
+      <h2>High Level Overview</h2>
+      <p>Before I jump into some of the key challenges and pivotal decisions, let me give you some
+      context about the system I had to become familiar with.</p>
       <ul>
         <li>Control Systems: PID Control</li>
         <li>Steering: Electric Differential</li>
         <li>Motors: <a href="technical/drive_datasheet.pdf">I&W EMAC Motors</a></li>
-        <li>Controllers: <a href="technical/gen4_manual.pdf">Sevcon Gen4 Compact AC Controllers</a></li>
-        <li>Communication Protocols: <a href="https://www.csselectronics.com/pages/can-bus-simple-intro-tutorial">CAN</a>, <a href="https://www.can-cia.org/can-knowledge/canopen">CANOpen</a></li>
+        <li>Controllers: <a href="technical/gen4_manual.pdf">Sevcon Gen4 Compact AC
+        Controllers</a></li>
+        <li>Communication Protocols:
+        <a href="https://www.csselectronics.com/pages/can-bus-simple-intro-tutorial">CAN</a>,
+        <a href="https://www.can-cia.org/can-knowledge/canopen">CANOpen</a></li>
         <li>Sensors: <a href="technical/encoder.pdf">Encoders</a></li>
         <li>Programming Languages: Python</li>
       </ul>
-      <p>Here is a high-level CAN network diagram I made for the strawberry harvester that remains mostly unchanged for the apple harvester.</p>
+      <p>Here is a high-level CAN network diagram I made for the strawberry
+      harvester, which remains mostly unchanged for the apple harvester.</p>
       <div class="content">
         <a href="technical/harvester_can_bus.png" target="_blank">
           <img src="technical/harvester_can_bus.png" alt="CAN Network Diagram" class="scaled-image">
         </a>
       </div>
-      <p>The harvester is a complex distributed system. To manage the sequencing of various services around the harvester, we use systemd on each of the service nodes. Below is a diagram of some of the key services running on our master computer.</p>
+      <p>The harvester is a complex distributed system. To manage the sequencing
+      of various services around the harvester, we use systemd on each of the
+      service nodes. Below is a diagram of some of the key services running on
+      our master computer.</p>
       <div class="content">
         <a href="technical/services_overview.png" target="_blank">
           <img src="technical/services_overview.png" alt="Systemd Diagram" class="scaled-image">
         </a>
       </div>
     </div>
+  </div>
+ 
+<div class="slide project">
+    <div class="back-to-contents">
+        <button onclick="goToSlide(1)">Back to Contents</button>
+    </div>
+    <h2>Key Challenges</h2>
+    <ul>
+        <li>Integrating hardware components (Sevcon controllers, PMAC motors)</li>
+        <li>Testing setup and iteration time</li>
+        <li>Inadequate control at low speeds</li>
+        <li>Issues with manual driving</li>
+    </ul>
+</div>
+
+<div class="slide project">
+    <div class="back-to-contents">
+        <button onclick="goToSlide(1)">Back to Contents</button>
+    </div>
+    <h2>Pivotal Decisions</h2>
+    <ul>
+        <li>Choosing speed mode over torque mode for Sevcon controllers</li>
+        <li>Creating a test bench for safe iteration and HWIL testing</li>
+        <li>Developing a custom PID position controller around the Sevcons velocity PI controller</li>
+        <li>Choosing to implement postion feedback from the sin cos encoders</li>
+        <li>Implementing an exponential joystick map for better handling at low speeds</li>
+        <li>Refactoring the Sevcon controller state machine to better handle braking</li>
+    </ul>
+</div>
+
+ 
+  <div class="slide project">
     <div class="details">
-      <h3>Technical Details</h3>
-      <p>I decided to break down the technical portion of this project into three parts, to which I will individually dedicate a section:</p>
+      <h2>Key Challenge 1: Integrating Hardware Components:</h2>
+      <h3>CANopen</h3>
       <ul>
-        <li>Section 1: Commissioning the Sevcons and Drives</li>
-        <li>Section 2: Testing and Iteration</li>
-        <li>Section 3: Features Implemented</li>
-      </ul>
-      <h3>Section 1: Commissioning the Sevcon Gen4 Compact AC Controllers</h3>
-      <p>CANOpen devices utilize the object dictionary to store all communication and application parameters. Each parameter owns a unique 24-bit address consisting of a 16-bit index and an 8-bit sub-index. These parameters are accessible through various CANOpen communication services. </p>
+        <li>The Sevcons are CANopen devices and therefore becoming familiar with the application layer and generic communication standards was critical.</li>
+        <li>The Sevcons are highly configurable, and there are hundreds of parameters in the object dictionary. It can become overwhelming to find what you're looking for.</li>
+        <li>There were few resources when it came to our own python implementation of CANOpen.</li>
       <div class="pdf-container">
-        <iframe src="technical/co_poster.pdf" width="800" height="475"></iframe>
+        <object data="technical/co_poster.pdf" type="application/pdf" width="800px" height="400px">
+        </object>
       </div>
-      <p>The Sevcons adhere to the CANOpen standard and are mainly configured through the object dictionary. It took a lot of research and reaching out to Sevcon and I&W to finally get a drive fully commissioned and working with the I&W PMAC drives. For the majority of this phase, I used the Windows DVT software provided by Sevcon for writing to the controller's object dictionary.</p>
-      <h4>Wiring and Components</h4>
+      <div class="pdf-container">
+        <object data="technical/CANOpen stack inheritance tree.pdf" type="application/pdf" width="800px" height="400px">
+        </object>
+      </div>
+      <h3>Motor Parameters</h3>
+      Here are a few parameters worth noting:</p>
+      <ul>
+        <li>Contactor pre-charge - Prevents damage from inrush current by
+        closing the contactor too quickly</li>
+        <li>Voltage torque-cutback map - Defines specific voltage thresholds
+        where the torque output needs to be reduced</li>
+        <li>Communication parameters - Setup motor to publish mapped data and
+        subscribe to specific messages</li>
+      </ul>
+      <p>Here is an example of the data configured to get sent over the bus:</p>
+      <a href="technical/Candump_Data.png" target="_blank">
+        <img src="technical/Candump_Data.png" alt="CAN Data" class="scaled-image">
+      </a>
+      <a href="technical/encoder_position_plot.png" target="_blank">
+        <img src="technical/encoder_position_plot.png" alt="Encoder Position Plot" class="scaled-image">
+      </a>
+    </div>
+  </div>
+  
+  <div class="slide project">
+    <div class="details">
+      <h2>Key Challenge 1: Integrating Hardware Components:</h2>
+      <h3>Wiring and Components</h3>
+      <p>Another challenge I encountered was having to understand all these individual components enough to do the wiring on them:</p>
       <ul>
         <li>48-volt power supply - 4 batteries in series</li>
         <li>48-volt Contactor - Driven by analog out on the Sevcon</li>
-        <li>24-volt Relay - Driven by enable signal. Supplies key switch signal to Sevcon</li>
-        <li>I&W Drive - Interfaces with Sevcon through UVW phase leads and Amphenol connector</li>
+        <li>24-volt Relay - Driven by enable signal. Supplies key switch signal
+        to Sevcon</li>
+        <li>I&W Drive - Interfaces with Sevcon through UVW phase leads and
+        Amphenol connector</li>
         <li>Sevcon Gen4 Controller - Controls I&W drive</li>
-        <li>32-pin Ampseal connector - Consolidates wiring from all components and plugs into Sevcon</li>
-        <li>8-pin Amphenol connector - Carries motor encoder, temperature, and brake signals.</li>
+        <li>32-pin Ampseal connector - Consolidates wiring from all components
+        and plugs into Sevcon</li>
+        <li>8-pin Amphenol connector - Carries motor encoder, temperature, and
+        brake signals.</li>
       </ul>
       <a href="technical/wiring.png" target="_blank">
         <img src="technical/wiring.png" alt="Wiring Diagram" class="scaled-image">
       </a>
-      <h4>Sin Cos Encoder Installation</h4>
-      <p>PMAC stands for <i>Synchronous Permanent Magnet AC</i> and behaves differently than your typical <i>Asynchronous Induction</i> motor. In the case of the PMAC motor, the rotor has magnets inside that move synchronously with the stator magnetic field, meaning the output frequency of the drive and motor speed are the same.</p>
-      <p>I actually got to do a teardown of one of these motors so you can see the stator and rotor below:</p>
+    </div>
+  </div>
+  
+  <div class="slide project">
+    <div class="details">
+      <h2>Key Challenge 1: Integrating Hardware Components:</h2>
+      <h3>Sin Cos Encoder Installation</h3>
+        <ul>
+            <li>I needed to configure the sevon with the min and max encoder sin cos voltages
+            <ul>
+                <li>Probed the encoder signals with a scope and manually rotated the motor to find the peak and trough voltages</li>
+            </ul>
+            </li>
+            <li>Encountered a shorted brake wire and had to do a teardown of the motor to fix it
+            <ul>
+                <li>Had to remove the rotor and stator to access the brake wire</li>
+            </ul>
+            </li>
+            <li>Had to become familiar with PMAC motors</li>
+        </ul> 
+    <a href="technical/oscilliscope.jpg" target="_blank">
+        <img src="technical/oscilliscope.jpg" alt="Oscilloscope" class="rounded-image">
+    </a>
+    <a href="technical/max_scope.jpg" target="_blank">
+        <img src="technical/max_scope.jpg" alt="Encoder Config" class="rounded-image">
+    </a>
       <a href="technical/rotor.jpg" target="_blank">
         <img src="technical/rotor.jpg" alt="Rotor" class="rounded-image">
       </a>
@@ -110,108 +244,233 @@
       <a href="technical/whiteboard.jpg" target="_blank">
         <img src="technical/whiteboard.jpg" alt="Whiteboard" class="rounded-image">
       </a>
-      <p>The Sevcon uses the sin cos encoder to calculate the mechanical angle based on where in space the rotor flux is pointing.</p>
-      <a href="technical/sincos_encoder.png" target="_blank">
+      <!-- <a href="technical/sincos_encoder.png" target="_blank">
         <img src="technical/sincos_encoder.png" alt="Sin Cos Encoder" class="scaled-image">
+      </a> -->
+    </div>
+  </div>
+  <div class="slide project">
+    <div class="details">
+        <h2>Key Challenge 2: Testing Setup and Iteration Time</h2>
+        <ul>
+            <li>We had unit tests but no HWITL testing</li>
+            <li>Tuning gains on the harvester was dangerous</li>
+            <li>The harvester was in Washington and I was in Davis</li>
+            <li>Drives were heavy and awkward to maneuver</li>
+            <li>Needed a way to emulate loads applied when driving in rough terrain</li>
+            <li>Needed a repeatable test to tune gains</li>
+            <li>Did not need the overhead of a whole service in order to iterate</li>
+    </div>
+  </div>
+  <div class="slide project">
+    <div class="details">
+        <h2>Key Challenge 3: Inadequate Control at Low Speeds</h2>
+        <ul>
+            <li>The harvester length was twice as wide as the wheel spacing was wide
+                <ul>
+                    <li>This acted as a lever that doubled our error at the nose of the harvester</li>
+                </ul>
+            </li>
+            <li>The Sevcon did not implement a signal limit on the compensation
+                <ul>
+                    <li>This allowed for integrator windup</li> 
+                </ul>
+            </li>
+            <li>Gains needed to be robust enough to support both high and low speeds</li>
+            <li>At low speeds the Harvester could not follow the commanded velocities precisely</li>
+            <li>Drives could not reliably achieve a commanded turn angle</li>
+        </ul>
+        </a>
+    </div>
+  </div>
+    <div class="slide project">
+        <div class="details">
+            <h2>Key Challenge 4: Issues with Manual Driving</h2>
+            <ul>
+                <li>Manual driving was difficult</li>
+                <li>Joystick was linearly mapped</li>
+                <li>Braking during manual drive was not responsive</li>
+            </ul>
+        </div> 
+    </div>
+  <div class="slide project">
+    <div class="details">
+    <h2>Pivotal Decision 1: Speed VS Torque Mode</h2>
+    <ul>
+        <li>Sevcon had two modes to choose from: torque and speed mode</li>
+        <li>Pros of selecting speed mode:
+            <ul>
+                <li>Provides internal PI velocity controller</li>
+                <li>Control loop can run at high frequencies - would have been otherwise limited by rate at which measured velocity was published</li>
+                <li>Provides limited low speed gain scheduling</li>
+                <li>Less prone to error</li>
+                <li>No derivative element to the controller</li>
+            </ul>
+        <li>Cons of selecting speed mode:
+            <ul>
+                <li>Unable to combat integrator windup</li>
+                <li>Unable to implement feed forward</li>
+                <li>Unable to implement more complex gain scheduling</li>
+                <li>Manual driving is less intuitive</li>
+            </ul>
+        </li>
+        </li>
+    </ul>
+      <a href="technical/speed_control.png" target="_blank">
+        <img src="technical/speed_control.png" alt="Speed Control" class="scaled-image">
       </a>
-      <p>The Sevcon requires that the encoder's sin and cos signals be wired into pins 21 and 34. Before doing so, however, the Sevcon's <i>object dictionary</i> needs to be configured with the minimum and maximum sin and cos voltages. To do this, I probed the encoder signals and manually rotated the motor to find the peak and trough voltages. You can also determine the motor UVW cable arrangement through a similar method, but luckily the order was already known.</p>
-        <a href="technical/oscilliscope.jpg" target="_blank">
-            <img src="technical/oscilliscope.jpg" alt="Oscilloscope" class="rounded-image">
-          </a>
-          <a href="technical/max_scope.jpg" target="_blank">
-            <img src="technical/max_scope.jpg" alt="Encoder Config" class="rounded-image">
-          </a>
-          <a href="technical/UVW.png" target="_blank">
-            <img src="technical/UVW.png" alt="UVW" class="rounded-image">
-          </a>
-    
-          <h4>Motor Parameters</h4>
-          <p>In addition to the encoder, I had to configure some more miscellaneous parameters. Here are a few worth noting:</p>
-          <ul>
-            <li>Contactor pre-charge - Prevents damage from inrush current by closing the contactor too quickly</li>
-            <li>Voltage torque-cutback map - Defines specific voltage thresholds where the torque output needs to be reduced</li>
-            <li>Communication parameters - Setup motor to publish mapped data and subscribe to specific messages</li>
-          </ul>
-          <p>Here is an example of the data configured to get sent over the bus:</p>
-          <a href="technical/Candump_Data.png" target="_blank">
-            <img src="technical/Candump_Data.png" alt="CAN Data" class="scaled-image">
-          </a>
-          <a href="technical/encoder_position_plot.png" target="_blank">
-            <img src="technical/encoder_position_plot.png" alt="Encoder Position Plot" class="scaled-image">
-          </a>
-          <p>Additionally, the Sevcon has two modes to choose from: torque and speed mode. I chose to operate in speed mode since it would provide some instant benefits for precise control. Here is the PID for speed control running on the Sevcon:</p>
-          <a href="technical/speed_control.png" target="_blank">
-            <img src="technical/speed_control.png" alt="Speed Control" class="scaled-image">
-          </a>
-          <p>The gains for the PI loop can be configured through the object dictionary. The Sevcon also performs some gain scheduling, providing a set of low and high-speed gains you can tune—more on this later.</p>
-          <p>At this stage, I had a motor with some crude gains that could follow a commanded speed. With this in place, the motor was commissioned, and I could move onward to implementing the Python code to control the Sevcons.</p>
-        </div>
-    
-        <h3>Section 2: Testing and Iteration</h3>
-        <h4>Drive System Test Fixture - Dyno</h4>
-        <p>For safety and iteration time, I needed a fixture where I could mount the drives and allow them to freely rotate. The CTO helped by building the frame while I worked on the electrical. In the end, this test fixture also ended up being useful for HWIL (Hardware-in-the-Loop) testing for future changes to the drive system service.</p>
-        <a href="technical/dyno.jpg" target="_blank">
-          <img src="technical/dyno.jpg" alt="Dyno Test" class="rounded-image">
-        </a> 
-        <a href="technical/dyno_back.jpg" target="_blank">
-          <img src="technical/dyno_back.jpg" alt="Dyno Test Back" class="rounded-image">
-        </a>
-        <video controls class="rounded-image">
-          <source src="technical/live_plot.mp4" type="video/mp4">
+    </div>
+  </div>
+  
+  <div class="slide project">
+    <div class="details">
+    <h2>Pivotal Decision 2: Test Fixture - Dyno</h2>
+    <h3>Test Fixture</h3>
+    <ul>
+        <li>Decided to create a test fixture with two motors connected together</li>
+        <li>One motor would be configured in torque mode and apply loads</li>
+    </ul>
+      <a href="technical/dyno.jpg" target="_blank">
+        <img src="technical/dyno.jpg" alt="Dyno Test" class="rounded-image">
+      </a>
+      <a href="technical/dyno_back.jpg" target="_blank">
+        <img src="technical/dyno_back.jpg" alt="Dyno Test Back" class="rounded-image">
+      </a>
+      <video controls class="rounded-image">
+        <source src="technical/live_plot.mp4" type="video/mp4">
         </video>
-        <h4>Sevcon Test Bench State Machine and Methods</h4>
-        <p>Structure of the test bench Python script I wrote to support the drive system test fixture.</p>
-        <a href="technical/test_bench_structure.png" target="_blank">
-          <img src="technical/test_bench_structure.png" alt="Test Bench Structure" class="scaled-image">
-        </a>
-        <p>Method to replay captured data on the test bench to emulate field control and tune gains and features.</p>
-        <script src="https://gist.github.com/bigkricket/85937fe218d488b146e0bbb8cfefe345.js"></script>
-        
-        <h3>Section 3: Features Implemented</h3>
-        <h4>Encoder Position Feedback</h4>
-        <p>Class to asynchronously capture analog frames from the CAN bus and return voltages for sin and cos signals.</p>
-        <script src="https://gist.github.com/bigkricket/b578b8221dc380b58977b4f0f3b2ef17.js"></script>
-        <p>Class to track angle and rotations given encoder sin and cos signals.</p>
-        <script src="https://gist.github.com/bigkricket/4788be2489d993b5aed86ad088cd81d6.js"></script>
-        
-        <h4>PID Controller</h4>
-        <p>Update method for custom PID controller class.</p>
-        <script src="https://gist.github.com/bigkricket/28580b2abe79787e5184e193b1bf9842.js"></script>
-        <p>Method to send out commanded speeds. Run asynchronously on a loop.</p>
-        <script src="https://gist.github.com/bigkricket/5e0e23b5e634fb45f7899e27fda224ff.js"></script>
+    <h3>Sevcon Test Bench State Machine and Methods</h3>
+        <ul>
+            <li>Implemented as a cli script rather than a systemd service</li>
+            <li>Utilized existing modules to interact with the Sevcons</li>
+            <li>provided methods to run benchmark tests</li>
+            <li>Provided ability to parse collected field candumps and replay commanded velocities and torque</li>
+        </ul>
+      <a href="technical/test_bench_structure.png" target="_blank">
+        <img src="technical/test_bench_structure.png" alt="Test Bench Structure" class="scaled-image">
+      </a>
+      <p>Method to replay captured data on the test bench to emulate field
+      control and tune gains and features.</p>
+      <script src="https://gist.github.com/bigkricket/85937fe218d488b146e0bbb8cfefe345.js"></script>
+    </div>
+  </div>
+  <div class="slide project">
+    <div class="details">
+    <h2>Pivotal Decision 3: Custom PID Position Controller</h2>
+    <ul>
+        <li>Sought to further improve low speed control by wrapping a position controller around the Sevcon's PI loop</li>
+        <li>Relied on state estimation at first because Sevcon did not expose position measurement</li>
+        <li>Allowed for unique feed forward implementations</li>
+        <li>Implemented signal limits</li>
+        <li>First major improvement in performance</li>
+        <li>State estimation was still not perfect and often had issues with correctly measuring position</li>
+    </ul>
+    <script src="https://gist.github.com/bigkricket/5e0e23b5e634fb45f7899e27fda224ff.js"></script>
+    </div>
+  </div>
+  <div class="slide project">
+    <div class="details">
+    <h2>Pivotal Decision 4: Position Feedback from Sin Cos Encoders</h2>
+    <ul>
+        <li>Decided to wire sin and cos signals to analog inputs on the Sevcon</li>
+        <li>Had to implement class to calculate the mechanical angle of the motor from incoming sin and cos values</li>
+        <li>Could not implement during manual control due to nyquist check</li>
+        <li>Another huge improvement in performance from this</li>
+    </ul>
+    <a href="technical/sincos_encoder.png">
+        <img src="technical/sincos_encoder.png" alt="Sin Cos Encoder" class="scaled-image">
+    </a>
+    <script src="https://gist.github.com/bigkricket/5e0e23b5e634fb45f7899e27fda224ff.js"></script>
+    <script src="https://gist.github.com/bigkricket/b578b8221dc380b58977b4f0f3b2ef17.js"></script>
+    </div>
+  </div>
+   <div class="slide project">
+    <div class="details">
+    <h2>Pivotal Decision 5: Exponential Joystick Map</h2>
+      <p>Implemented an exponential joystick map to provide better handling at
+      low to mid speeds while still providing full power at full deflection.</p>
+      <a href="technical/joystick_map.png" target="_blank">
+        <img src="technical/joystick_map.png" alt="Joystick Map" class="scaled-image">
+      </a>
+      <script src="https://gist.github.com/bigkricket/54ece9f692fc0baa5ffae01f609d7db1.js"></script>
+    </div>
+  </div>
+  
+  <div class="slide project">
+    <div class="details">
+    <h2>Pivotal Decision 6: Better Braking Behavior</h2>
+    <ul>
+        <p>In this project I also chose to refactor our Sevcon controller state machine as there were complaints of the drives continuing to move after commanding zero speed.</p>
+        <li>Chose to go into state braked in two different ways
+            <ul>
+                <li>Slow to a stop and then engage brakes</li>
+                <li>Immediately engage brakes</li>
+            </ul>
+        </li>
+        <li>Improved safety by preventing the drives from moving after being commanded zero speed </li>
+    </ul>
+      <p>State diagram for the Sevcon controller. States in blue are ones I
+      modified or created.</p>
+      <a href="technical/sevcon_controller_state_machine.png" target="_blank">
+        <img src="technical/sevcon_controller_state_machine.png" alt="Sevcon State Machine" class="scaled-image">
+      </a>
+    </div>
+  </div>
+  
+ 
+  <div class="slide project">
+    <div class="results">
+      <h2>Results</h2>
+      <p>Here is a plot I generated that tracks commanded and measured position
+      information from real-life trellis driving before I implemented my
+      features:</p>
+      <a href="technical/result_old.png" target="_blank">
+        <img src="technical/result_old.png" alt="Old Results" class="scaled-image">
+      </a>
+      <p>And here is the same plot after I implemented my features:</p>
+      <a href="technical/results_improved.png" target="_blank">
+        <img src="technical/results_improved.png" alt="Improved Results" class="scaled-image">
+      </a>
+    </div>
+  </div>
+    <div class="back-to-contents">
+        <button onclick="goToSlide(1)">Back to Contents</button>
+    </div> 
+    <div class="slide project">
+        <div class="back-to-contents">
+            <button onclick="goToSlide(1)">Back to Contents</button>
+        </div>
+        <h2>Lessons Learned</h2>
+        <p>What I would do differently knowing what I know now:</p>
+        <ul>
+            <li>Try to use more open source CANopen libraries for commissioning of Sevcons
+                <ul>
+                    <li>One example I can think of is the canopen module which has a dcf programmer and reader you can use to quickly configure CANOpen devices.</li>
+                </ul>
+            </li>
+            <li>Spend less time on parts of the project that are less likely to have a high ROI
+                <ul>
+                    <li>For example, I spent a lot of time trying to tune the Sevcon velocity gains to be perfect when I quickly tuned them to a point where they were good enough.</li>
+                </ul>
+            </li>
+            <li>Reach out to the companies whose components you are using. They are the most knowledgeable about their product and may be able to answer a question in minutes.</li>
+            <li>Invest the time in producing robust and scalable analysis tools
+            </li>
+        </ul>
+    </div>
     
-        <h4>Better Braking Behavior and Contactor Precharge States</h4>
-        <p>State diagram for the Sevcon controller. States in blue are ones I modified or created.</p>
-        <a href="technical/sevcon_controller_state_machine.png" target="_blank">
-          <img src="technical/sevcon_controller_state_machine.png" alt="Sevcon State Machine" class="scaled-image">
-        </a>
-        
-        <h4>Exponential Joystick Map</h4>
-        <p>Implemented an exponential joystick map to provide better handling at low to mid speeds while still providing full power at full deflection.</p>
-        <a href="technical/joystick_map.png" target="_blank">
-          <img src="technical/joystick_map.png" alt="Joystick Map" class="scaled-image">
-        </a>
-        <script src="https://gist.github.com/bigkricket/54ece9f692fc0baa5ffae01f609d7db1.js"></script>
-        <!-- <p>Tank Style Mapping</p>
-        <script src="https://gist.github.com/bigkricket/159195f9b62176edc6ca985b8506aa97.js"></script> -->
-        
-        <div class="results">
-          <h3>Results</h3>
-          <p>Here is a plot I generated that tracks commanded and measured position information from real-life trellis driving before I implemented my features:</p>
-          <a href="technical/result_old.png" target="_blank">
-            <img src="technical/result_old.png" alt="Old Results" class="scaled-image">
-          </a>
-          <p>And here is the same plot after I implemented my features:</p>
-          <a href="technical/results_improved.png" target="_blank">
-            <img src="technical/results_improved.png" alt="Improved Results" class="scaled-image">
-          </a>
+    <div class="slide project">
+        <div class="back-to-contents">
+            <button onclick="goToSlide(1)">Back to Contents</button>
         </div>
-        
-        <div class="footer">
-          <p><a href="../../index.html">Back to Home</a></p>
-        </div>
-      </div>
-      <script src="apple_harvester.js"></script>
-    </body>
-    </html>
-     
+        <h2>Questions?</h2>
+    </div> 
+  <div class="slide project">
+    <div class="footer">
+      <a href="../../index.html">Back to Home</a>
+    </div>
+  </div>
+  <script src="apple_harvester.js"></script>
+</body>
+</html>
+

@@ -461,12 +461,4 @@ h3 {
 .resume .func .interests-items div span {
   display: block; }
 
-.rounded-image {
-    width: 250px;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 10px;
-}
-
-
 /*# sourceMappingURL=style.css.map */
