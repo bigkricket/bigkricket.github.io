@@ -1,0 +1,55 @@
+digraph "Sevcon Controller State Machine" {digraph "Sevcon Controller State Machine" {
+    "state_wait_status" -> "start_node_reset" [label="SevconEvents.STATUS (fault, reset)"];
+    "state_wait_status" -> "start_node_reset" [label="STATUS (fault, reset)"];
+    "state_wait_status" -> "proceed_to_error" [label="STATUS (fault, max reset)"];
+    "state_wait_status" -> "state_wait_precharge" [label="STATUS (no fault)"];
+    "state_wait_status" -> "state_error" [label="EMCY or PFSM_FAULT"];
+    "state_wait_status" -> "start_node_reset" [label="RESET"];
+    "state_wait_status" -> "_proceed_to_shutdown" [label="SHUTDOWN"];
+    "state_wait_status" -> "state_error" [label="NMT (not operational)"];
+
+    "state_wait_precharge" -> "state_braked" [label="PRECHARGE_COMPLETE"];
+    "state_wait_precharge" -> "start_node_reset" [label="RESET"];
+    "state_wait_precharge" -> "state_error" [label="EMCY or PFSM_FAULT"];
+    "state_wait_precharge" -> "_proceed_to_shutdown" [label="SHUTDOWN"];
+    "state_wait_precharge" -> "state_error" [label="NMT (not operational)"];
+
+    "state_braked" -> "state_wait_speed_ctl" [label="SPEED_CTL"];
+    "state_braked" -> "state_neutral" [label="NEUTRAL"];
+    "state_braked" -> "start_node_reset" [label="RESET"];
+    "state_braked" -> "state_error" [label="EMCY or PFSM_FAULT"];
+    "state_braked" -> "_proceed_to_shutdown" [label="SHUTDOWN"];
+    "state_braked" -> "state_error" [label="NMT (not operational)"];
+
+    "state_wait_speed_ctl" -> "state_speed_ctl" [label="BRAKE_RELEASED"];
+    "state_wait_speed_ctl" -> "state_decel_stop" [label="DECEL_STOP"];
+    "state_wait_speed_ctl" -> "state_braked" [label="ABRUPT_STOP"];
+    "state_wait_speed_ctl" -> "start_node_reset" [label="RESET"];
+    "state_wait_speed_ctl" -> "state_error" [label="EMCY or PFSM_FAULT"];
+    "state_wait_speed_ctl" -> "_proceed_to_shutdown" [label="SHUTDOWN"];
+    "state_wait_speed_ctl" -> "state_error" [label="NMT (not operational)"];
+
+    "state_neutral" -> "state_decel_stop" [label="DECEL_STOP"];
+    "state_neutral" -> "state_braked" [label="ABRUPT_STOP"];
+    "state_neutral" -> "start_node_reset" [label="RESET"];
+    "state_neutral" -> "state_error" [label="EMCY"];
+    "state_neutral" -> "_proceed_to_shutdown" [label="SHUTDOWN"];
+    "state_neutral" -> "state_error" [label="NMT (not operational)"];
+
+    "state_speed_ctl" -> "state_decel_stop" [label="DECEL_STOP"];
+    "state_speed_ctl" -> "state_braked" [label="ABRUPT_STOP"];
+    "state_speed_ctl" -> "start_node_reset" [label="RESET"];
+    "state_speed_ctl" -> "state_error" [label="EMCY or PFSM_FAULT"];
+    "state_speed_ctl" -> "_proceed_to_shutdown" [label="SHUTDOWN"];
+    "state_speed_ctl" -> "state_error" [label="NMT (not operational)"];
+
+    "state_decel_stop" -> "state_braked" [label="STATUS (RPM < 10)"];
+    "state_decel_stop" -> "state_braked" [label="ABRUPT_STOP"];
+    "state_decel_stop" -> "start_node_reset" [label="RESET"];
+    "state_decel_stop" -> "state_error" [label="EMCY or PFSM_FAULT"];
+    "state_decel_stop" -> "_proceed_to_shutdown" [label="SHUTDOWN"];
+
+    "state_error" -> "start_node_reset" [label="Handle all error transitions"];
+}
+
+
