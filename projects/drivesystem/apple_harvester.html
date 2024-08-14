@@ -26,24 +26,39 @@
             <ol>
                 <li><a href="#" onclick="goToSlide(2); return false;">Project Goal</a></li>
                 <li><a href="#" onclick="goToSlide(3); return false;">High Level Overview</a></li>
-                <li><a href="#" onclick="goToSlide(4); return false;">Key Challenges</a></li>
-                <li><a href="#" onclick="goToSlide(5); return false;">Pivotal Decisions</a></li>
-                <li><a href="#" onclick="goToSlide(6); return false;">Key Challenge 1: Integrating Hardware Components</a></li>
-                <li><a href="#" onclick="goToSlide(9); return false;">Key Challenge 2: Testing Setup and Iteration Time</a></li>
-                <li><a href="#" onclick="goToSlide(10); return false;">Key Challenge 3: Inadequate Control at Low Speeds</a></li>
-                <li><a href="#" onclick="goToSlide(11); return false;">Key Challenge 4: Issues with Manual Driving</a></li>
-                <li><a href="#" onclick="goToSlide(12); return false;">Pivotal Decision 1: Speed VS Torque Mode</a></li>
-                <li><a href="#" onclick="goToSlide(13); return false;">Pivotal Decision 2: Test Fixture - Dyno</a></li>
-                <li><a href="#" onclick="goToSlide(14); return false;">Pivotal Decision 3: Custom PID Position Controller</a></li>
-                <li><a href="#" onclick="goToSlide(15); return false;">Pivotal Decision 4: Position Feedback from Sin Cos Encoders</a></li>
-                <li><a href="#" onclick="goToSlide(16); return false;">Pivotal Decision 5: Exponential Joystick Map</a></li>
-                <li><a href="#" onclick="goToSlide(17); return false;">Pivotal Decision 6: Better Braking Behavior</a></li>
-                <li><a href="#" onclick="goToSlide(18); return false;">Results</a></li>
-                <li><a href="#" onclick="goToSlide(19); return false;">Lessons Learned</a></li>
-                <li><a href="#" onclick="goToSlide(20); return false;">Questions</a></li>
+                <li><a href="#" onclick="goToSlide(4); return false;">Key Challenge 1: Integrating Hardware Components</a></li>
+                <li><a href="#" onclick="goToSlide(5); return false;">Pivotal Decision 1: Speed VS Torque Mode</a></li>
+                <li><a href="#" onclick="goToSlide(6); return false;">Key Challenge 2: Testing Setup and Iteration Time</a></li>
+                <li><a href="#" onclick="goToSlide(7); return false;">Pivotal Decision 2: Test Fixture - Dyno</a></li>
+                <li><a href="#" onclick="goToSlide(8); return false;">Key Challenge 3: Inadequate Control at Low Speeds</a></li>
+                <li><a href="#" onclick="goToSlide(9); return false;">Pivotal Decision 3: Custom PID Position Controller</a></li>
+                <li><a href="#" onclick="goToSlide(10); return false;">Key Challenge 4: Issues with Manual Driving</a></li>
+                <li><a href="#" onclick="goToSlide(11); return false;">Pivotal Decision 5: Exponential Joystick Map</a></li>
+                <li><a href="#" onclick="goToSlide(12); return false;">Pivotal Decision 6: Better Braking Behavior</a></li>
+                <li><a href="#" onclick="goToSlide(13); return false;">Results</a></li>
+                <li><a href="#" onclick="goToSlide(14); return false;">Lessons Learned</a></li>
+                <li><a href="#" onclick="goToSlide(15); return false;">Questions</a></li>
             </ol>
         </div>
     </div>
+    <div class="slide project">
+    <div class="technical/driving.mp4">
+      <div class="back-to-contents">
+        <button onclick="goToSlide(1)">Back to Contents</button>
+      </div>
+      <div class ="about me">
+        <h2>About Me</h2>
+        <ul>
+          <li>Graduated in 2021 with my bachelors in computer engineering</li>
+          <li>Software Engineer Manager of Testing at <a href="https://advanced.farm/">Advanced Farm</a></li>
+        </ul>
+          <video controls  class="scaled-image">
+            <source src="technical/driving.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
 
     <div class="slide project">
         <div class="back-to-contents">
@@ -121,77 +136,20 @@
       </div>
     </div>
   </div>
- 
-<div class="slide project">
-    <div class="back-to-contents">
-        <button onclick="goToSlide(1)">Back to Contents</button>
-    </div>
-    <h2>Key Challenges</h2>
-    <ul>
-        <li>Integrating hardware components (Sevcon controllers, PMAC motors)</li>
-        <li>Testing setup and iteration time</li>
-        <li>Inadequate control at low speeds</li>
-        <li>Issues with manual driving</li>
-    </ul>
-</div>
 
-<div class="slide project">
-    <div class="back-to-contents">
-        <button onclick="goToSlide(1)">Back to Contents</button>
-    </div>
-    <h2>Pivotal Decisions</h2>
-    <ul>
-        <li>Choosing speed mode over torque mode for Sevcon controllers</li>
-        <li>Creating a test bench for safe iteration and HWIL testing</li>
-        <li>Developing a custom PID position controller around the Sevcons velocity PI controller</li>
-        <li>Choosing to implement postion feedback from the sin cos encoders</li>
-        <li>Implementing an exponential joystick map for better handling at low speeds</li>
-        <li>Refactoring the Sevcon controller state machine to better handle braking</li>
-    </ul>
-</div>
-
- 
   <div class="slide project">
+    <div class="back-to-contents">
+        <button onclick="goToSlide(1)">Back to Contents</button>
+    </div>
     <div class="details">
       <h2>Key Challenge 1: Integrating Hardware Components:</h2>
-      <h3>CANopen</h3>
-      <ul>
-        <li>The Sevcons are CANopen devices and therefore becoming familiar with the application layer and generic communication standards was critical.</li>
-        <li>The Sevcons are highly configurable, and there are hundreds of parameters in the object dictionary. It can become overwhelming to find what you're looking for.</li>
-        <li>There were few resources when it came to our own python implementation of CANOpen.</li>
-      <div class="pdf-container">
-        <object data="technical/co_poster.pdf" type="application/pdf" width="800px" height="400px">
-        </object>
-      </div>
-      <div class="pdf-container">
-        <object data="technical/CANOpen stack inheritance tree.pdf" type="application/pdf" width="800px" height="400px">
-        </object>
-      </div>
-      <h3>Motor Parameters</h3>
-      Here are a few parameters worth noting:</p>
-      <ul>
-        <li>Contactor pre-charge - Prevents damage from inrush current by
-        closing the contactor too quickly</li>
-        <li>Voltage torque-cutback map - Defines specific voltage thresholds
-        where the torque output needs to be reduced</li>
-        <li>Communication parameters - Setup motor to publish mapped data and
-        subscribe to specific messages</li>
-      </ul>
-      <p>Here is an example of the data configured to get sent over the bus:</p>
-      <a href="technical/Candump_Data.png" target="_blank">
-        <img src="technical/Candump_Data.png" alt="CAN Data" class="scaled-image">
-      </a>
-      <a href="technical/encoder_position_plot.png" target="_blank">
+     <!-- <a href="technical/encoder_position_plot.png" target="_blank">
         <img src="technical/encoder_position_plot.png" alt="Encoder Position Plot" class="scaled-image">
-      </a>
+      </a> -->
     </div>
-  </div>
-  
-  <div class="slide project">
     <div class="details">
-      <h2>Key Challenge 1: Integrating Hardware Components:</h2>
       <h3>Wiring and Components</h3>
-      <p>Another challenge I encountered was having to understand all these individual components enough to do the wiring on them:</p>
+      <p>A challenge I encountered early on was having to understand all these individual components enough to do the wiring on them:</p>
       <ul>
         <li>48-volt power supply - 4 batteries in series</li>
         <li>48-volt Contactor - Driven by analog out on the Sevcon</li>
@@ -209,31 +167,27 @@
         <img src="technical/wiring.png" alt="Wiring Diagram" class="scaled-image">
       </a>
     </div>
-  </div>
-  
-  <div class="slide project">
     <div class="details">
-      <h2>Key Challenge 1: Integrating Hardware Components:</h2>
       <h3>Sin Cos Encoder Installation</h3>
-        <ul>
-            <li>I needed to configure the sevon with the min and max encoder sin cos voltages
-            <ul>
-                <li>Probed the encoder signals with a scope and manually rotated the motor to find the peak and trough voltages</li>
-            </ul>
-            </li>
-            <li>Encountered a shorted brake wire and had to do a teardown of the motor to fix it
-            <ul>
-                <li>Had to remove the rotor and stator to access the brake wire</li>
-            </ul>
-            </li>
-            <li>Had to become familiar with PMAC motors</li>
-        </ul> 
-    <a href="technical/oscilliscope.jpg" target="_blank">
+      <ul>
+        <li>I needed to configure the Sevcon with the min and max encoder sin cos voltages
+          <ul>
+            <li>Probed the encoder signals with a scope and manually rotated the motor to find the peak and trough voltages</li>
+          </ul>
+        </li>
+        <li>Encountered a shorted brake wire and had to do a teardown of the motor to fix it
+          <ul>
+            <li>Had to remove the rotor and stator to access the brake wire</li>
+          </ul>
+        </li>
+        <li>Had to become familiar with PMAC motors</li>
+      </ul>
+      <a href="technical/oscilliscope.jpg" target="_blank">
         <img src="technical/oscilliscope.jpg" alt="Oscilloscope" class="rounded-image">
-    </a>
-    <a href="technical/max_scope.jpg" target="_blank">
+      </a>
+      <a href="technical/max_scope.jpg" target="_blank">
         <img src="technical/max_scope.jpg" alt="Encoder Config" class="rounded-image">
-    </a>
+      </a>
       <a href="technical/rotor.jpg" target="_blank">
         <img src="technical/rotor.jpg" alt="Rotor" class="rounded-image">
       </a>
@@ -243,57 +197,9 @@
       <a href="technical/whiteboard.jpg" target="_blank">
         <img src="technical/whiteboard.jpg" alt="Whiteboard" class="rounded-image">
       </a>
-      <!-- <a href="technical/sincos_encoder.png" target="_blank">
-        <img src="technical/sincos_encoder.png" alt="Sin Cos Encoder" class="scaled-image">
-      </a> -->
     </div>
-  </div>
-  <div class="slide project">
-    <div class="details">
-        <h2>Key Challenge 2: Testing Setup and Iteration Time</h2>
-        <ul>
-            <li>We had unit tests but no HWITL testing</li>
-            <li>Tuning gains on the harvester was dangerous</li>
-            <li>The harvester was in Washington and I was in Davis</li>
-            <li>Drives were heavy and awkward to maneuver</li>
-            <li>Needed a way to emulate loads applied when driving in rough terrain</li>
-            <li>Needed a repeatable test to tune gains</li>
-            <li>Did not need the overhead of a whole service in order to iterate</li>
-    </div>
-  </div>
-  <div class="slide project">
-    <div class="details">
-        <h2>Key Challenge 3: Inadequate Control at Low Speeds</h2>
-        <ul>
-            <li>The harvester length was twice as wide as the wheel spacing was wide
-                <ul>
-                    <li>This acted as a lever that doubled our error at the nose of the harvester</li>
-                </ul>
-            </li>
-            <li>The Sevcon did not implement a signal limit on the compensation
-                <ul>
-                    <li>This allowed for integrator windup</li> 
-                </ul>
-            </li>
-            <li>Gains needed to be robust enough to support both high and low speeds</li>
-            <li>At low speeds the Harvester could not follow the commanded velocities precisely</li>
-            <li>Drives could not reliably achieve a commanded turn angle</li>
-        </ul>
-        </a>
-    </div>
-  </div>
-    <div class="slide project">
-        <div class="details">
-            <h2>Key Challenge 4: Issues with Manual Driving</h2>
-            <ul>
-                <li>Manual driving was difficult</li>
-                <li>Joystick was linearly mapped</li>
-                <li>Braking during manual drive was not responsive</li>
-            </ul>
-        </div> 
-    </div>
-  <div class="slide project">
-    <div class="details">
+</div>
+<div class="slide project">
     <h2>Pivotal Decision 1: Speed VS Torque Mode</h2>
     <ul>
         <li>Sevcon had two modes to choose from: torque and speed mode</li>
@@ -303,7 +209,6 @@
                 <li>Control loop can run at high frequencies - would have been otherwise limited by rate at which measured velocity was published</li>
                 <li>Provides limited low speed gain scheduling</li>
                 <li>Less prone to error</li>
-                <li>No derivative element to the controller</li>
             </ul>
         <li>Cons of selecting speed mode:
             <ul>
@@ -320,7 +225,19 @@
       </a>
     </div>
   </div>
-  
+
+  <div class="slide project">
+    <div class="details">
+        <h2>Key Challenge 2: Testing Setup and Iteration Time</h2>
+        <ul>
+            <li>We had unit tests but no HWITL testing</li>
+            <li>Tuning gains on the harvester was dangerous</li>
+            <li>The harvester was in Washington and I was in Davis</li>
+            <li>Drives were heavy and awkward to maneuver</li>
+            <li>Needed a way to emulate loads applied when driving in rough terrain</li>
+            <li>Needed a repeatable test to tune gains</li>
+    </div>
+  </div>
   <div class="slide project">
     <div class="details">
     <h2>Pivotal Decision 2: Test Fixture - Dyno</h2>
@@ -355,34 +272,59 @@
   </div>
   <div class="slide project">
     <div class="details">
+        <h2>Key Challenge 3: Inadequate Control at Low Speeds</h2>
+        <ul>
+            <li>The harvester length was twice as wide as the wheel spacing was wide
+                <ul>
+                    <li>This acted as a lever that doubled our error at the nose of the harvester</li>
+                </ul>
+            </li>
+            <li>The Sevcon did not implement a signal limit on the compensation
+                <ul>
+                    <li>This allowed for integrator windup</li> 
+                </ul>
+            </li>
+            <li>Gains needed to be robust enough to support both high and low speeds</li>
+            <li>Tuning gains at the sevcon controller level was not sufficient to reach desired positon</li>
+        </ul>
+        </a>
+    </div>
+  </div>
+  
+  <div class="slide project">
+    <div class="details">
     <h2>Pivotal Decision 3: Custom PID Position Controller</h2>
     <ul>
         <li>Sought to further improve low speed control by wrapping a position controller around the Sevcon's PI loop</li>
-        <li>Relied on state estimation at first because Sevcon did not expose position measurement</li>
         <li>Allowed for unique feed forward implementations</li>
         <li>Implemented signal limits</li>
-        <li>First major improvement in performance</li>
-        <li>State estimation was still not perfect and often had issues with correctly measuring position</li>
+        <li>Use encoder for position measurement</li>
     </ul>
-    <script src="https://gist.github.com/bigkricket/5e0e23b5e634fb45f7899e27fda224ff.js"></script>
+    <script src="https://gist.github.com/bigkricket/28580b2abe79787e5184e193b1bf9842.js"></script>
     </div>
-  </div>
-  <div class="slide project">
-    <div class="details">
-    <h2>Pivotal Decision 4: Position Feedback from Sin Cos Encoders</h2>
+    <h3>Position Feedback from Sin Cos Encoders</h3>
     <ul>
         <li>Decided to wire sin and cos signals to analog inputs on the Sevcon</li>
         <li>Had to implement class to calculate the mechanical angle of the motor from incoming sin and cos values</li>
         <li>Could not implement during manual control due to nyquist check</li>
-        <li>Another huge improvement in performance from this</li>
     </ul>
     <a href="technical/sincos_encoder.png">
         <img src="technical/sincos_encoder.png" alt="Sin Cos Encoder" class="scaled-image">
     </a>
-    <script src="https://gist.github.com/bigkricket/5e0e23b5e634fb45f7899e27fda224ff.js"></script>
+    <script src="https://gist.github.com/bigkricket/4788be2489d993b5aed86ad088cd81d6.js"></script>
     <script src="https://gist.github.com/bigkricket/b578b8221dc380b58977b4f0f3b2ef17.js"></script>
     </div>
   </div>
+
+    <div class="slide project">
+        <div class="details">
+            <h2>Key Challenge 4: Issues with Manual Driving</h2>
+            <ul>
+                <li>Joystick was linearly mapped</li>
+                <li>Braking during manual drive was not responsive</li>
+            </ul>
+        </div> 
+    </div>
    <div class="slide project">
     <div class="details">
     <h2>Pivotal Decision 5: Exponential Joystick Map</h2>
@@ -392,9 +334,8 @@
         <img src="technical/joystick_map.png" alt="Joystick Map" class="scaled-image">
       </a>
       <script src="https://gist.github.com/bigkricket/54ece9f692fc0baa5ffae01f609d7db1.js"></script>
-    </div>
   </div>
-  
+  </div>  
   <div class="slide project">
     <div class="details">
     <h2>Pivotal Decision 6: Better Braking Behavior</h2>
