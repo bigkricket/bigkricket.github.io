@@ -1,13 +1,15 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat");
 * {
-  outline: none; }
+  outline: none;
+}
 
 *,
 *:before,
 *:after {
   -webkit-box-sizing: inherit;
   -moz-box-sizing: inherit;
-  box-sizing: inherit; }
+  box-sizing: inherit;
+}
 
 html,
 body {
@@ -21,6 +23,7 @@ body {
   background: #ffffff;
   cursor: default;
   font-family: "Montserrat", sans-serif;
-  font-size: 16px; }
+  font-size: 16px;
+}
 
 /*# sourceMappingURL=walnut_chair.css.map */

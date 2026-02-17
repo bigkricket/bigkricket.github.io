@@ -1,13 +1,15 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat");
 * {
-  outline: none; }
+  outline: none;
+}
 
 *,
 *:before,
 *:after {
   -webkit-box-sizing: inherit;
   -moz-box-sizing: inherit;
-  box-sizing: inherit; }
+  box-sizing: inherit;
+}
 
 html,
 body {
@@ -21,23 +23,27 @@ body {
   background: #ffffff;
   cursor: default;
   font-family: "Montserrat", sans-serif;
-  font-size: 16px; }
+  font-size: 16px;
+}
 
 a {
   text-decoration: none;
   color: #ffffff;
   display: block;
-  transition-duration: 0.3s; }
+  transition-duration: 0.3s;
+}
 
 ul {
   list-style-type: none;
-  padding: 0; }
+  padding: 0;
+}
 
 h3 {
   color: #ffffff;
   margin: 10px 0;
   text-transform: lowercase;
-  font-size: 1.25em; }
+  font-size: 1.25em;
+}
 
 .resume {
   width: 960px;
@@ -46,33 +52,39 @@ h3 {
   margin: 20px auto;
   box-shadow: 10px 10px #0e1442;
   position: relative;
-  display: flex; }
+  display: flex;
+}
 
 .resume .base,
 .resume .func {
   box-sizing: border-box;
-  float: left; }
+  float: left;
+}
 
 .resume .base > div,
 .resume .func > div {
-  padding-bottom: 10px; }
+  padding-bottom: 10px;
+}
 
 .resume .base > div:last-of-type,
 .resume .func > div:last-of-type {
-  padding-bottom: 0; }
+  padding-bottom: 0;
+}
 
 .resume .base {
   width: 30%;
   padding: 30px 15px;
   background: #274472;
-  color: #ffffff; }
+  color: #ffffff;
+}
 
 .resume .base .profile {
   background: #C3E0E5;
   padding: 30px 15px 40px 15px;
   margin: -30px -15px 45px -15px;
   position: relative;
-  z-index: 2; }
+  z-index: 2;
+}
 
 .resume .base .profile::after {
   content: "";
@@ -83,55 +95,67 @@ h3 {
   bottom: -15px;
   left: 0;
   transform: skewY(-5deg);
-  z-index: -1; }
+  z-index: -1;
+}
 
 .resume .base .profile .photo img {
   width: 100%;
-  border-radius: 50%; }
+  border-radius: 50%;
+}
 
 .resume .base .profile .photo {
   display: flex;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+}
 
 .resume .base .profile .fa-rocket {
   font-size: 100px;
   text-align: center;
   margin: auto;
-  color: #274472; }
+  color: #274472;
+}
 
 .resume .base .about .job-link {
-  color: #C3E0E5; }
+  color: #C3E0E5;
+}
 
 .resume .base .profile .info {
   text-align: center;
-  color: #ffffff; }
+  color: #ffffff;
+}
 
 .resume .base .profile .info .name {
   margin-top: 10px;
   margin-bottom: 0;
   font-size: 1.75em;
   text-transform: lowercase;
-  color: #1a237e; }
+  color: #1a237e;
+}
 
 .resume .base .profile .info .job {
   margin-top: 10px;
   margin-bottom: 0;
   font-size: 1.5em;
   text-transform: lowercase;
-  color: #274472; }
+  color: #274472;
+}
 
 .resume .base .contact div {
-  line-height: 24px; }
+  line-height: 24px;
+}
 
 .resume .base .contact div a:hover {
-  color: #fdd835; }
+  color: #fdd835;
+}
 
 .resume .base .contact div a:hover span::after {
-  width: 100%; }
+  width: 100%;
+}
 
 .resume .base .contact div:hover i {
-  color: #fdd835; }
+  color: #fdd835;
+}
 
 .resume .base .contact div i {
   color: #C3E0E5;
@@ -140,10 +164,12 @@ h3 {
   font-size: 20px;
   text-align: center;
   margin-right: 15px;
-  transition-duration: 0.3s; }
+  transition-duration: 0.3s;
+}
 
 .resume .base .contact div span {
-  position: relative; }
+  position: relative;
+}
 
 .resume .base .contact div span::after {
   content: "";
@@ -153,23 +179,28 @@ h3 {
   width: 0;
   bottom: 0;
   left: 0;
-  transition-duration: 0.3s; }
+  transition-duration: 0.3s;
+}
 
 .resume .base .follow .box {
   text-align: center;
-  vertical-align: middle; }
+  vertical-align: middle;
+}
 
 .resume .base .follow .box a {
   display: inline-block;
-  vertical-align: text-bottom; }
+  vertical-align: text-bottom;
+}
 
 .resume .base .follow .box a:hover i {
   background: #fdd835;
   border-radius: 5px;
-  transform: rotate(45deg) scale(0.8); }
+  transform: rotate(45deg) scale(0.8);
+}
 
 .resume .base .follow .box a:hover i::before {
-  transform: rotate(-45deg) scale(1.5); }
+  transform: rotate(-45deg) scale(1.5);
+}
 
 .resume .base .follow .box i {
   display: inline-block;
@@ -181,39 +212,50 @@ h3 {
   line-height: 60px;
   color: #274472;
   margin: 0 10px 10px 10px;
-  transition-duration: 0.3s; }
+  transition-duration: 0.3s;
+}
 
 .resume .base .follow .box i::before {
-  transition-duration: 0.3s; }
+  transition-duration: 0.3s;
+}
 
 .resume .base .follow .box i.fa::before {
-  display: block; }
+  display: block;
+}
 
 .resume .func {
   width: 100%;
-  padding: 30px; }
+  padding: 30px;
+}
 
 .resume .func:hover > div {
-  transition-duration: 0.5s; }
+  transition-duration: 0.5s;
+}
 
 .resume .func:hover > div:hover h3 i {
-  transform: scale(1.25); }
+  transform: scale(1.25);
+}
 
 .resume .func:hover > div:not(:hover) {
-  opacity: 0.5; }
+  opacity: 0.5;
+}
 
 .resume .func:hover > a > div {
-  transition-duration: 0.5s; }
+  transition-duration: 0.5s;
+}
 
 .resume .func:hover > a > div:hover h3 i {
-  transform: scale(1.25); }
+  transform: scale(1.25);
+}
 
 .resume .func:hover > a > div:not(:hover) {
-  opacity: 0.5; }
+  opacity: 0.5;
+}
 
 .resume .func h3 {
   transition-duration: 0.3s;
-  margin-top: 0; }
+  margin-top: 0;
+}
 
 .resume .func h3 i {
   color: #274472;
@@ -226,17 +268,20 @@ h3 {
   text-align: center;
   vertical-align: middle;
   margin-right: 8px;
-  transition-duration: 0.3s; }
+  transition-duration: 0.3s;
+}
 
 .resume .func .work,
 .resume .func .edu {
-  float: left; }
+  float: left;
+}
 
 .resume .func .work small,
 .resume .func .edu small,
 .resume .func .res small {
   display: block;
-  opacity: 0.7; }
+  opacity: 0.7;
+}
 
 .resume .func .work ul li,
 .resume .func .edu ul li,
@@ -244,34 +289,43 @@ h3 {
   position: relative;
   margin-left: 15px;
   padding-left: 25px;
-  padding-bottom: 15px; }
+  padding-bottom: 15px;
+}
 
 .resume .func .work ul li:hover::before,
 .resume .func .edu ul li:hover::before {
-  animation: circle 1.2s infinite; }
+  animation: circle 1.2s infinite;
+}
 
 .resume .func .work ul li:hover span,
 .resume .func .edu ul li:hover span {
-  color: #fdd835; }
+  color: #fdd835;
+}
 
 @keyframes circle {
   from {
-    box-shadow: 0 0 0 0px #fdd835; }
+    box-shadow: 0 0 0 0px #fdd835;
+  }
   to {
-    box-shadow: 0 0 0 6px rgba(255, 255, 255, 0); } }
+    box-shadow: 0 0 0 6px rgba(255, 255, 255, 0);
+  }
+}
 .resume .func .work ul li:first-of-type::before,
 .resume .func .edu ul li:first-of-type::before {
   width: 10px;
   height: 10px;
-  left: 1px; }
+  left: 1px;
+}
 
 .resume .func .work ul li:last-of-type,
 .resume .func .edu ul li:last-of-type {
-  padding-bottom: 3px; }
+  padding-bottom: 3px;
+}
 
 .resume .func .work ul li:last-of-type::after,
 .resume .func .edu ul li:last-of-type::after {
-  border-radius: 1.5px; }
+  border-radius: 1.5px;
+}
 
 .resume .func .work ul li::before,
 .resume .func .work ul li::after,
@@ -279,7 +333,8 @@ h3 {
 .resume .func .edu ul li::after {
   content: "";
   display: block;
-  position: absolute; }
+  position: absolute;
+}
 
 .resume .func .work ul li::before,
 .resume .func .edu ul li::before {
@@ -289,7 +344,8 @@ h3 {
   background: #C3E0E5;
   border-radius: 50%;
   left: 3px;
-  z-index: 1; }
+  z-index: 1;
+}
 
 .resume .func .work ul li::after,
 .resume .func .edu ul li::after {
@@ -297,67 +353,80 @@ h3 {
   height: 100%;
   background: #ffffff;
   left: 5px;
-  top: 0; }
+  top: 0;
+}
 
 .resume .func .work ul li span,
 .resume .func .edu ul li span {
-  transition-duration: 0.3s; }
+  transition-duration: 0.3s;
+}
 
 .resume .func .work {
   width: 48%;
   background: #274472;
   padding: 15px;
-  margin: 0 4% 15px 0; }
+  margin: 0 4% 15px 0;
+}
 
 .resume .func .edu {
   width: 48%;
   background: #274472;
   padding: 15px;
-  margin-bottom: 15px; }
+  margin-bottom: 15px;
+}
 
 .resume .func .res {
   width: 48%;
   background: #274472;
   padding: 5px 10px;
   margin: 0px 52% 15px 0px;
-  display: flex; }
-  a:not(.resume .func .res) {
-    text-decoration: none;
-    color: inherit;
-    animation: none;
-    transition: none; }
+  display: flex;
+}
+a:not(.resume .func .res) {
+  text-decoration: none;
+  color: inherit;
+  animation: none;
+  transition: none;
+}
 
 .resume .func .aft-video {
   clear: both;
   background: #274472;
-  padding: 15px; }
+  padding: 15px;
+}
 
 .resume .func .aft-video ul {
-  margin-left: 15px; }
+  margin-left: 15px;
+}
 
 .resume .func .aft-video ul li {
   margin-bottom: 8px;
   display: flex;
   align-items: center;
-  transition-duration: 0.3s; }
+  transition-duration: 0.3s;
+}
 
 .resume .func .aft-video ul li:hover {
-  color: #fdd835; }
+  color: #fdd835;
+}
 
 .resume .func .aft-video ul li:hover .skills-bar .bar {
   background: #fdd835;
-  box-shadow: 0 0 0 1px #fdd835; }
+  box-shadow: 0 0 0 1px #fdd835;
+}
 
 .resume .func .aft-video ul li span {
   display: block;
-  width: 120px; }
+  width: 120px;
+}
 
 .resume .func .aft-video ul li .skills-bar {
   background: #ffffff;
   height: 2px;
   width: calc(100% - 120px);
   position: relative;
-  border-radius: 2px; }
+  border-radius: 2px;
+}
 
 .resume .func .aft-video ul li .skills-bar .bar {
   position: absolute;
@@ -365,50 +434,61 @@ h3 {
   height: 4px;
   background: #41729F;
   box-shadow: 0 0 0 #C3E0E5;
-  border-radius: 5px; }
+  border-radius: 5px;
+}
 
 .resume .func .skills-soft {
   clear: both;
   background: #274472;
   padding: 15px;
-  margin: 15px 0 0; }
+  margin: 15px 0 0;
+}
 
 .resume .func .skills-soft ul {
   display: flex;
   justify-content: space-between;
-  text-align: center; }
+  text-align: center;
+}
 
 .resume .func .skills-soft ul li {
-  position: relative; }
+  position: relative;
+}
 
 .resume .func .skills-soft ul li:hover svg .cbar {
   stroke: #fdd835;
-  stroke-width: 4px; }
+  stroke-width: 4px;
+}
 
 .resume .func .skills-soft ul li svg {
   transform: scale(1);
-  transition: transform 0.3s ease; }
+  transition: transform 0.3s ease;
+}
 
 .resume .func .skills-soft ul li:hover svg {
   transform: scale(1.2);
-  transition: transform 0.3s ease; }
+  transition: transform 0.3s ease;
+}
 
 .resume .func .skills-soft ul li:hover span,
 .resume .func .skills-soft ul li:hover small {
-  transform: scale(1.2); }
+  transform: scale(1.2);
+}
 
 .resume .func .skills-soft ul li svg {
   width: 95%;
-  fill: transparent; }
+  fill: transparent;
+}
 
 .resume .func .skills-soft ul li svg circle {
   stroke-width: 1px;
-  stroke: #ffffff; }
+  stroke: #ffffff;
+}
 
 .resume .func .skills-soft ul li svg .cbar {
   stroke-width: 3px;
   stroke: #C3E0E5;
-  stroke-linecap: round; }
+  stroke-linecap: round;
+}
 
 .resume .func .skills-soft ul li span,
 .resume .func .skills-soft ul li small {
@@ -416,15 +496,18 @@ h3 {
   display: block;
   width: 100%;
   top: 52%;
-  transition-duration: 0.3s; }
+  transition-duration: 0.3s;
+}
 
 .resume .func .skills-soft ul li span {
-  top: 40%; }
+  top: 40%;
+}
 
 .resume .func .interests {
   background: #274472;
   margin: 15px 0 0;
-  padding: 15px; }
+  padding: 15px;
+}
 
 .resume .func .interests-items {
   box-sizing: border-box;
@@ -432,7 +515,8 @@ h3 {
   width: 100%;
   text-align: center;
   display: flex;
-  justify-content: space-evenly; }
+  justify-content: space-evenly;
+}
 
 .resume .func .interests-items div {
   display: flex;
@@ -441,14 +525,17 @@ h3 {
   align-items: center;
   width: 100px;
   height: 100px;
-  border-radius: 50%; }
+  border-radius: 50%;
+}
 
 .resume .func .interests-items div:hover i {
-  transform: scale(1.2); }
+  transform: scale(1.2);
+}
 
 .resume .func .interests-items div:hover span {
   color: #fdd835;
-  transition-duration: 0.3s; }
+  transition-duration: 0.3s;
+}
 
 .resume .func .interests-items div i {
   font-size: 50px;
@@ -456,9 +543,11 @@ h3 {
   height: 60px;
   line-height: 60px;
   color: #C3E0E5;
-  transition-duration: 0.3s; }
+  transition-duration: 0.3s;
+}
 
 .resume .func .interests-items div span {
-  display: block; }
+  display: block;
+}
 
 /*# sourceMappingURL=style.css.map */
