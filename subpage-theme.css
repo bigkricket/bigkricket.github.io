@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+
+:root {
+  --darkest-blue: #1a237e;
+  --darker-blue: #274472;
+  --light-blue: #41729f;
+  --lighter-blue: #5885af;
+  --lightest-blue: #c3e0e5;
+  --white: #ffffff;
+  --black: #0e1442;
+  --yellow: #fdd835;
+}
+
+.main-theme-page,
+.main-theme-page * {
+  box-sizing: border-box;
+}
+
+.main-theme-page {
+  margin: 0;
+  padding: 20px;
+  font-family: "Montserrat", sans-serif;
+  background: var(--white);
+  color: var(--white);
+}
+
+.main-theme-page a {
+  color: inherit;
+}
+
+.main-theme-page .back-home {
+  max-width: 960px;
+  margin: 0 auto 12px;
+}
+
+.main-theme-page .back-home a {
+  display: inline-block;
+  background: var(--darker-blue);
+  color: var(--lightest-blue);
+  padding: 8px 12px;
+  border-left: 3px solid var(--lightest-blue);
+  text-decoration: none;
+}
+
+.main-theme-page .back-home a:hover {
+  border-left-color: var(--yellow);
+  color: var(--yellow);
+}
+
+.main-theme-page > header,
+.main-theme-page > nav,
+.main-theme-page > main,
+.main-theme-page > section,
+.main-theme-page > .slide.project {
+  max-width: 960px;
+  margin: 0 auto 15px;
+  background: var(--darker-blue);
+  box-shadow: 8px 8px var(--black);
+  padding: 18px;
+}
+
+.main-theme-page h1,
+.main-theme-page h2,
+.main-theme-page h3 {
+  margin-top: 0;
+  color: var(--white);
+  text-transform: lowercase;
+}
+
+.main-theme-page p,
+.main-theme-page li,
+.main-theme-page figcaption {
+  line-height: 1.6;
+}
+
+.main-theme-page ul,
+.main-theme-page ol {
+  padding-left: 20px;
+}
+
+.main-theme-page ul li::before {
+  color: var(--lightest-blue);
+}
+
+.main-theme-page img,
+.main-theme-page video,
+.main-theme-page embed {
+  max-width: 100%;
+  height: auto;
+  border: 2px solid var(--lighter-blue);
+  background: var(--white);
+}
