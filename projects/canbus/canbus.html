@@ -24,10 +24,10 @@
     <section id="connecting">
     <h2>Connecting to the CAN Network</h2>
     <p>The vehicle I will be working with is my daily driver, a 2015 Dodge Ram 1500. Most cars, including my truck, have two can busses: A medium speed (MS) can network for diagnostics and a high speed (HS) network for more critical processes. On my truck these are called CAN-IHS and CAN-C respectively. Below are the schematics for my truck's CAN networks.</p>
-    <embed src="images/CAN_C_RAM.pdf" width="800" height="600" type="application/pdf">
-    <embed src="images/CAN-C-BUS-SYSTEM.pdf" width="800" height="600" type="application/pdf">
-    <embed src="images/CAN_IHS_RAM.pdf" width="800" height="600" type="application/pdf">
-    <embed src="images/CAN-IHS-BUS-SYSTEM.pdf" width="800" height="600" type="application/pdf">
+    <embed class="schematic-pdf" src="images/CAN_C_RAM.pdf" width="800" height="600" type="application/pdf">
+    <embed class="schematic-pdf" src="images/CAN-C-BUS-SYSTEM.pdf" width="800" height="600" type="application/pdf">
+    <embed class="schematic-pdf" src="images/CAN_IHS_RAM.pdf" width="800" height="600" type="application/pdf">
+    <embed class="schematic-pdf" src="images/CAN-IHS-BUS-SYSTEM.pdf" width="800" height="600" type="application/pdf">
     <p>As mentioned earlier, due to the introduction of ISO 15765-4 the OBD2 port on my truck has access to the CAN-C network through pins 6 (CAN high) and 14 (CAN low).</p>
     <img src="images/obd2-connector-pinout-socket.svg" alt="SVG Image" width="800" height="600">
     <p>*A quick aside on the CAN physical layer (ISO 11898-2): generally the can bus consists of a differential signal sent through a twisted pair of wires reffered to as CAN high and CAN low. For the scope of this project that is all we reallly need to know, but I recommend finding more resources online.</p>
